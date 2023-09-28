@@ -6,7 +6,6 @@ import { recoilData } from '../recoil/atoms/dataState';
 
 export default function PrivateRoutes() {
   const isLoggedIn = useRecoilValue(recoilData);
-  console.log(isLoggedIn);
 
   return isLoggedIn.length === 0 ? <Navigate to="/login" /> : <Outlet />;
 }

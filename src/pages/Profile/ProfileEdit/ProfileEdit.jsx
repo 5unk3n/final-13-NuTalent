@@ -49,7 +49,6 @@ export default function ProfileEdit() {
 
   useEffect(() => {
     if (uploadedImage) {
-      console.log('uploadedimage', uploadedImage);
       setProfileImage(uploadedImage);
     }
   }, [uploadedImage]);
@@ -57,10 +56,8 @@ export default function ProfileEdit() {
   const handleUserNameBlur = () => {
     if (userName.length < 2 || userName.length > 10) {
       setIsUserNameInvalid(true);
-      console.log(isUserNameInvalid);
     } else {
       setIsUserNameInvalid(false);
-      console.log(isUserNameInvalid);
     }
   };
 
@@ -70,20 +67,16 @@ export default function ProfileEdit() {
       setUserIdErrorMessage(
         '*계정ID는 영문, 숫자, 밑줄, 마침표만 사용할 수 있습니다.',
       );
-      console.log(isUserIdInvalid);
     } else {
       setIsUserIdInvalid(false);
-      console.log(isUserIdInvalid);
     }
   };
 
   const handleDescriptionBlur = () => {
     if (!description) {
       setIsDescriptionInvalid(true);
-      console.log(isDescriptionInvalid);
     } else {
       setIsDescriptionInvalid(false);
-      console.log(isDescriptionInvalid);
     }
   };
 
@@ -97,8 +90,6 @@ export default function ProfileEdit() {
           image: profileImage,
         },
       });
-
-      console.log('user', user);
 
       updateProfileMutate(user);
     } catch (error) {

@@ -57,7 +57,6 @@ export default function SignUp() {
         setIsEmailError(true);
         setEmailResponseMessage(`*${res.data.message}`);
       } else {
-        console.log('이메일 중복 여부 통신 성공');
         navigate('/signUp/profile', {
           state: {
             email: email,

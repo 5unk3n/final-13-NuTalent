@@ -16,7 +16,6 @@ export default function Modal({
   children,
 }) {
   const { isTransitionComplete } = useCloseAfterTransition(isOpen);
-  console.log(isBackdropClose);
 
   useEffect(() => {
     if (isOpen) {

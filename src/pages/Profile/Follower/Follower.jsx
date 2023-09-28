@@ -25,7 +25,7 @@ export default function Follower() {
         followMutation(userInfo);
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

@@ -15,8 +15,6 @@ export default function ChatRoom() {
   const userProfile = location.state.userImg;
   const chatContents = location.state.chatContents;
 
-  console.log(location.state);
-
   const handleImageChange = (e) => {
     const imageTyped = e.target.files[0];
     if (imageTyped) {

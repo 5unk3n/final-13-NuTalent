@@ -20,7 +20,7 @@ export default function ProfileInfo({ profile, followToggle }) {
           url: text,
         });
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
       return;
     } else {
@@ -28,7 +28,7 @@ export default function ProfileInfo({ profile, followToggle }) {
         await navigator.clipboard.writeText(text);
         alert('클립보드에 링크가 복사되었어요.');
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     }
   };
