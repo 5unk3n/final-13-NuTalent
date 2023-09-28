@@ -48,12 +48,12 @@ export default function Profile() {
         />
         <ProductList
           products={products}
-          deleteProduct={() => deleteProductMutate(products.id)}
+          deleteProduct={(productId) => deleteProductMutate(productId)}
         />
         <PostList
           posts={posts?.pages}
           fetchNextPosts={fetchNextPosts}
-          deletePost={() => deletePostMutate(posts.id)}
+          deletePost={(postId) => deletePostMutate(postId)}
           hasViewController={true}
         />
       </S.Container>

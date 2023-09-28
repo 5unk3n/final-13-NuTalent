@@ -19,7 +19,7 @@ export default function ProductList({ products, deleteProduct }) {
                   itemName={product.itemName}
                   price={product.price}
                   itemImg={product.itemImage}
-                  onDelete={deleteProduct}
+                  onDelete={() => deleteProduct(product.id)}
                   link={product.link}
                 />
               </li>
