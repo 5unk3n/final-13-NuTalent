@@ -36,13 +36,11 @@ const getFollowings = async (accountName) => {
 export const useFollowStatus = (accountName) => {
   const queryClient = useQueryClient();
 
-  // Followers
   const { data: followersData, isLoading: isFollowersLoading } = useQuery({
     queryKey: ['followers', accountName],
     queryFn: () => getFollowers(accountName),
   });
 
-  // Followings
   const { data: followingsData, isLoading: isFollowingsLoading } = useQuery({
     queryKey: ['followings', accountName],
     queryFn: () => getFollowings(accountName),

@@ -33,7 +33,6 @@ export default function PostUpload() {
     textareaHeightControl();
   }, [content]);
 
-  // 텍스트에 따라 textarea의 높이 동적으로 조절
   const textareaHeightControl = () => {
     textareaRef.current.style.height = 'auto';
     textareaRef.current.style.height = `${

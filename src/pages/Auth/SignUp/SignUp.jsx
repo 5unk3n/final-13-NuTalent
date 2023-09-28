@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TextActiveInput from '../../../components/common/TextActiveInput/TextActiveInput';
 import StyledBtn from '../../../components/common/Button/Button';
-// import { instance } from '../../../util/api/axiosInstance';
 import useSignUp from '../../../../src/hooks/react-query/useSignUp';
 import {
   JoinMembersWrap,
@@ -98,7 +97,6 @@ export default function SignUp() {
         )}
       </TextInputBox>
       <StyledBtn
-        // to="/signUp/profile"
         onClick={handleSubmit}
         disabled={isEmailError || isPasswordError}
       >

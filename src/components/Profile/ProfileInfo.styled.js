@@ -1,4 +1,3 @@
-// Profile section
 import { css, styled } from 'styled-components';
 import { Link } from 'react-router-dom';
 

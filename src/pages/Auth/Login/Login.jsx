@@ -25,7 +25,6 @@ export default function LoginPage() {
   const handleEmailChange = (e) => {
     setEmail(e.target.value.trim());
 
-    // 이메일 유효성 검사
     if (email === '') {
       setIsEmailValid(false);
       setEmailAlertMessage('*이메일을 입력해주세요');
@@ -41,7 +40,6 @@ export default function LoginPage() {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value.trim());
 
-    // 패스워드 유효성 검사
     if (password.length < 1) {
       setIsPasswordValid(false);
       setPasswordAlertMessage('*비밀번호를 입력해주세요.');
@@ -54,7 +52,6 @@ export default function LoginPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // 이메일 유효성 검사
     if (!emailRegEx.test(email)) {
       setIsEmailValid(false);
       setEmailAlertMessage('*유효하지 않은 이메일입니다.');
@@ -63,7 +60,6 @@ export default function LoginPage() {
       setEmailAlertMessage('');
     }
 
-    // 패스워드 유효성 검사
     if (password.length < 6) {
       setIsPasswordValid(false);
       setPasswordAlertMessage('*비밀번호는 6자 이상이어야 합니다.');

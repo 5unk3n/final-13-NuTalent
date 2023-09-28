@@ -30,7 +30,6 @@ export const PostButtons = styled.div`
 `;
 
 export const PostLike = styled.button`
-  //기본 버튼 스타일
   width: 2rem;
   height: 2rem;
   cursor: pointer;

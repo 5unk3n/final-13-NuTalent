@@ -52,7 +52,6 @@ export default function AddProduct() {
     });
   };
 
-  // 여기부터 작성하겠습니다~
   const priceHandler = (e) => {
     const value = e.target.value;
     const removedCommaValue = Number(value.replace(/,|[^0-9]/g, '')) || '';
