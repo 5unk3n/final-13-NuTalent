@@ -19,10 +19,11 @@
   },
   "plugins": ["react", "@tanstack/query", "import"],
   "rules": {
-    "react/jsx-uses-vars": "error",
+    "react/jsx-uses-vars": "warn",
     "react/prop-types": "off",
     "@tanstack/query/exhaustive-deps": "error",
     "@tanstack/query/prefer-query-object-syntax": "error",
+    "no-console": ["warn", { "allow": ["warn", "error", "info"] }],
     "import/order": [
       "warn",
       {
