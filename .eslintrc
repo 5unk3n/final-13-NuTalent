@@ -33,12 +33,13 @@
           "internal",
           ["parent", "sibling"],
           "type",
-          "unknown"
+          "unknown",
+          "object"
         ],
         "pathGroups": [
           {
             "pattern": "{.,..}/**/*.styled",
-            "group": "unknown"
+            "group": "object"
           }
         ],
         "newlines-between": "always",
