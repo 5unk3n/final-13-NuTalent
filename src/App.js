@@ -7,11 +7,11 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import Toast from './components/Toast/Toast';
 import Alert from './components/common/Alert/Alert';
 import Router from './routes/Router';
-import queryClient from './util/queryClient';
 import { recoilData } from './recoil/atoms/dataState';
 import { instance, setupInterceptor } from './util/api/axiosInstance';
 import { useAlert, useBottomSheet, useToast } from './hooks/useModal';
 import BottomSheetModal from './components/common/BottomSheetModal/BottomSheetModal';
+import queryClient from './libs/react-query';
 
 function App() {
   const [isReady, setIsReady] = useState(false);
