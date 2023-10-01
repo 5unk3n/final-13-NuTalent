@@ -19,7 +19,8 @@
   },
   "plugins": ["react", "@tanstack/query", "import"],
   "rules": {
-    "react/jsx-uses-vars": "warn",
+    "no-unused-vars": "warn",
+    "react/jsx-uses-vars": "error",
     "react/prop-types": "off",
     "@tanstack/query/exhaustive-deps": "error",
     "@tanstack/query/prefer-query-object-syntax": "error",
