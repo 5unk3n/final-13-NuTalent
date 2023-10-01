@@ -27,29 +27,27 @@ const sizes = {
 
 const colors = {
   fill: css`
-    background-color: var(--main-purple);
-    color: white;
+    background-color: ${({ theme }) => theme.color.purpleLight};
+    color: ${({ theme }) => theme.color.white};
   `,
   outline: css`
-    background: white;
-    border: 0.1rem solid var(--main-purple);
-    color: var(--main-purple);
+    background: ${({ theme }) => theme.color.white};
+    background-color: ${({ theme }) => theme.color.purpleLight};
+    color: ${({ theme }) => theme.color.purpleLight};
   `,
-  outlineGrey: css`
-    background: white;
-    border: 0.1rem solid var(--sub-grey);
-    color: var(--main-grey);
+  outlineGray: css`
+    background: ${({ theme }) => theme.color.white};
+    border: ${({ theme }) => theme.color.gray[400]} 0.1rem solid;
+    color: ${({ theme }) => theme.color.gray[500]};
   `,
 };
 
 const StyledBtn = css`
-  font-size: 1.4rem;
-
   cursor: pointer;
 
-  ${(props) => sizes[props.size]}
-  ${(props) => props.width && `width: ${props.width};`}
-  ${(props) => colors[props.color]}
+  ${({ $size }) => sizes[$size]}
+  ${({ $width }) => $width && `width: ${$width};`}
+  ${({ $color }) => colors[$color]}
 
   &:disabled {
     background-color: #c2a9ce;
@@ -59,6 +57,7 @@ const StyledBtn = css`
 export const StyledButton = styled.button`
   ${StyledBtn}
 `;
+
 export const StyledLink = styled(Link)`
   ${StyledBtn}
 `;
