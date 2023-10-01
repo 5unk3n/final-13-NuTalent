@@ -55,4 +55,8 @@ export const GlobalStyle = createGlobalStyle`
   select:focus {
     outline: none;
   }
+
+  img {
+    vertical-align: bottom;
+  }
 `;

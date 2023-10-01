@@ -19,6 +19,9 @@ export const InputField = styled.input`
   &:focus {
     border-bottom: ${({ theme }) => theme.color.purpleLight} 0.1rem solid;
   }
+  &::placeholder {
+    color: ${({ theme }) => theme.color.gray[400]};
+  }
 `;
 
 export const BottomText = styled.p`
