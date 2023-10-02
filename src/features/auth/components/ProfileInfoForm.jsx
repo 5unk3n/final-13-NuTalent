@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { useCheckDuplicateAccountname } from '../api/checkDuplicateAccountname';
 
-import CircleImage, { DEFAULT_PROFILE_IMG_URL } from '@/components/CircleImage';
+import CircleImage from '@/components/CircleImage';
 import Button from '@/components/common/Button/Button';
 import TextInput from '@/components/TextInput';
 import { useUploadImage } from '@/features/images/api/uploadImage';
@@ -13,6 +13,9 @@ import {
 } from '@/util/validation/validateForm';
 
 import * as S from './ProfileInfoForm.styled';
+
+const DEFAULT_PROFILE_IMG_URL =
+  'https://api.mandarin.weniv.co.kr/1687295086842.png';
 
 export default function ProfileInfoForm({ onSubmit, buttonText, initData }) {
   const { uploadedImage, handleImageChange } = useUploadImage();
