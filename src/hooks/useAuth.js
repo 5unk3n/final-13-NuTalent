@@ -21,7 +21,8 @@ const useAuth = () => {
         if (res.status === 422) {
           throw new Error(res.message);
         }
-        userStorage.setUser(res.user);
+        const user = JSON.stringify(res.user);
+        userStorage.setUser(user);
         setUserQueryData(res.user);
       },
     });
