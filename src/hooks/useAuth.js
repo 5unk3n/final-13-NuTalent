@@ -1,9 +1,8 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { useNavigate } from 'react-router-dom';
 
 import { signinWithData, signupWithData } from '@/features/auth';
 import { getMyInfo } from '@/features/auth/api/getMyInfo';
-import tokenStorage from '@/util/tokenStorage';
+import userStorage from '@/util/userStorage';
 
 const useAuth = () => {
   const queryClient = useQueryClient();
@@ -11,7 +10,7 @@ const useAuth = () => {
   const ONE_HOUR = 1000 * 60 * 60;
 
   const useSignin = () => {
-    const setUser = (user) => {
+    const setUserQueryData = (user) => {
       queryClient.setQueryData([USER_KEY], user);
     };
 
@@ -22,26 +21,23 @@ const useAuth = () => {
         if (res.status === 422) {
           throw new Error(res.message);
         }
-        tokenStorage.setToken(res.user.token);
-        setUser(res.user);
+        userStorage.setToken(res.user.token);
+        setUserQueryData(res.user);
       },
     });
   };
 
   const useSignup = () => {
-    const navigate = useNavigate();
-
     return useMutation({
       mutationFn: (signupData) => signupWithData(signupData),
       onSuccess: () => {
-        navigate('/signup/profile');
         alert('회원가입에 성공하였습니다!');
       },
     });
   };
 
-  const useSignout = () => {
-    tokenStorage.removeToken();
+  const signout = () => {
+    userStorage.removeToken();
     queryClient.removeQueries([USER_KEY]);
   };
 
@@ -50,11 +46,12 @@ const useAuth = () => {
       queryKey: [USER_KEY],
       queryFn: getMyInfo,
       staleTime: ONE_HOUR,
+      initialData: userStorage.getUser(),
       ...options,
     });
   };
 
-  return { useSignin, useSignup, useSignout, useUser };
+  return { useSignin, useSignup, signout, useUser };
 };
 
 export default useAuth;

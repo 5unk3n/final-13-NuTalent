@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import tokenStorage from '@/util/tokenStorage';
+import userStorage from '@/util/userStorage';
 
 const BASE_URL = 'https://api.mandarin.weniv.co.kr';
 
@@ -9,7 +9,8 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use((config) => {
-  const token = tokenStorage.getToken();
+  const user = userStorage.getUser();
+  const token = user?.token;
 
   if (config.url === '/image/uploadfile') {
     config.headers['Content-Type'] = 'multipart/form-data';
