@@ -21,7 +21,7 @@ const useAuth = () => {
         if (res.status === 422) {
           throw new Error(res.message);
         }
-        userStorage.setToken(res.user.token);
+        userStorage.setUser(res.user);
         setUserQueryData(res.user);
       },
     });
@@ -37,7 +37,7 @@ const useAuth = () => {
   };
 
   const signout = () => {
-    userStorage.removeToken();
+    userStorage.removeUser();
     queryClient.removeQueries([USER_KEY]);
   };
 

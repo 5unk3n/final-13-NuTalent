@@ -1,14 +1,18 @@
 import React from 'react';
 import { useRoutes } from 'react-router-dom';
 
-import privateRoutes from './privateRoutes';
-import publicRoutes from './publicRoutes';
+import { PrivateRoute, privateRoutes } from './privateRoutes';
+import { PublicRoute, publicRoutes } from './publicRoutes';
 
 import IntroPage from '@/features/misc/routes/IntroPage';
 import NotFoundPage from '@/features/misc/routes/NotFoundPage';
 import SplashPage from '@/features/misc/routes/SplashPage';
+import useAuth from '@/hooks/useAuth';
 
 export default function Router() {
+  const { useUser } = useAuth();
+  const { data: user } = useUser();
+
   const commonRoutes = [
     {
       path: '/',
@@ -26,8 +30,8 @@ export default function Router() {
 
   const element = useRoutes([
     ...commonRoutes,
-    ...publicRoutes,
-    ...privateRoutes,
+    { element: <PublicRoute user={user} />, children: publicRoutes },
+    { element: <PrivateRoute user={user} />, children: privateRoutes },
   ]);
 
   return element;
