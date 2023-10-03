@@ -10,7 +10,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use((config) => {
   const user = userStorage.getUser();
-  const { token } = JSON.parse(user);
+  const token = user?.token;
 
   if (config.url === '/image/uploadfile') {
     config.headers['Content-Type'] = 'multipart/form-data';
