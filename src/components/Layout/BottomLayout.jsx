@@ -4,6 +4,8 @@ import { Outlet, useLocation } from 'react-router-dom';
 import BottomInputForm from '../Elements/BottomInputForm';
 import BottomNav from '../Elements/BottomNav';
 
+import CommentUploader from '@/features/comments/components/CommentUploader';
+
 import * as S from './BottomLayout.styled';
 
 export default function BottomLayout() {
@@ -17,7 +19,7 @@ export default function BottomLayout() {
     if (chatRegex.test(pathname)) {
       return <BottomInputForm />;
     } else if (postRegex.test(pathname)) {
-      return <BottomInputForm />;
+      return <CommentUploader />;
     } else {
       return <BottomNav />;
     }

@@ -5,12 +5,13 @@ import { useGetPost } from '../api/getPost';
 import Post from '../components/Post';
 
 import HeaderBar from '@/components/Elements/HeaderBar';
+import CommentList from '@/features/comments/components/CommentList';
 
 import * as S from './PostDetailPage.styled';
 
 export default function PostDetailPage() {
-  const { id } = useParams();
-  const { data: post, isLoading } = useGetPost(id);
+  const { id: postId } = useParams();
+  const { data: post, isLoading } = useGetPost(postId);
 
   if (isLoading) return;
 
@@ -23,7 +24,9 @@ export default function PostDetailPage() {
       <S.PostSection>
         <Post postData={post} />
       </S.PostSection>
-      <section>{/* TODO: CommentList Section*/}</section>
+      <S.CommentSection>
+        <CommentList />
+      </S.CommentSection>
     </>
   );
 }
