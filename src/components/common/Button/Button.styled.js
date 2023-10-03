@@ -60,4 +60,7 @@ export const StyledButton = styled.button`
 
 export const StyledLink = styled(Link)`
   ${StyledBtn}
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

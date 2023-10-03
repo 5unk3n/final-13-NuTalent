@@ -90,7 +90,9 @@ export default function SignupForm({ formType }) {
           />
         </TextInput>
       </S.InputWrapper>
-      <Button disabled={submitButtonDisabled}>다음</Button>
+      <Button disabled={submitButtonDisabled}>
+        {formType === 'signin' ? '로그인' : '다음'}
+      </Button>
     </form>
   );
 }
