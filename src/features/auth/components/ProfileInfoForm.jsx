@@ -82,10 +82,10 @@ export default function ProfileInfoForm({ onSubmit, buttonText, initData }) {
         <S.ProfileImageWrapper>
           <CircleImage
             src={uploadedImage || DEFAULT_PROFILE_IMG_URL}
-            size="lg"
+            size="110"
           />
           <S.UploaderWrapper>
-            <ImageUploader onImgaeChange={handleImageChange} size="sm" />
+            <ImageUploader onImgaeChange={handleImageChange} size="36" />
           </S.UploaderWrapper>
         </S.ProfileImageWrapper>
         <TextInput label="사용자 이름">

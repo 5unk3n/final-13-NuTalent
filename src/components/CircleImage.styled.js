@@ -1,21 +1,9 @@
-import styled, { css } from 'styled-components';
-
-const sizes = {
-  sm: css`
-    width: 3.6rem;
-    height: 3.6rem;
-  `,
-  md: css`
-    width: 5rem;
-    height: 5rem;
-  `,
-  lg: css`
-    width: 11rem;
-    height: 11rem;
-  `,
-};
+import styled from 'styled-components';
 
 export const CircleImage = styled.img`
-  ${({ $size }) => sizes[$size]}
+  ${({ $size }) => `
+    width: ${$size}px; 
+    height: ${$size}px;
+  `}
   border-radius: 50%;
 `;
