@@ -1,12 +1,11 @@
 import { styled } from 'styled-components';
 
-export const Container = styled.div`
+export const TagBarWrapper = styled.div`
   height: 4rem;
   border: 1px solid #e5e5e5;
 `;
 
-export const List = styled.ul`
-  max-width: 64rem;
+export const TagList = styled.ul`
   margin: 0 auto;
   display: flex;
   align-items: center;
