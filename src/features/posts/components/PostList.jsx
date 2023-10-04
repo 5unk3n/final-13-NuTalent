@@ -8,7 +8,10 @@ import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 
 import * as S from './PostList.styled';
 
-export default function PostList({ hasViewController = false }) {
+export default function PostList({
+  postType = 'feed',
+  hasViewController = false,
+}) {
   const [viewType, setViewType] = useState('list');
   const { useUser } = useAuth();
   const { data: user } = useUser();
@@ -16,7 +19,7 @@ export default function PostList({ hasViewController = false }) {
     data: posts,
     isLoading,
     fetchNextPage,
-  } = useGetPostList(user.accountname, 'feed');
+  } = useGetPostList(user.accountname, postType);
   const ref = useIntersectionObserver(([entry]) => {
     if (entry.isIntersecting) {
       fetchNextPage();

@@ -5,7 +5,7 @@ import User from './User';
 import Carousel from '@/components/common/Carousel/Carousel';
 import { useToggleHeart } from '@/features/hearts/api/toggleHeart';
 import useTag from '@/hooks/useTag';
-import { formatDate } from '@/util/formatDate';
+import { formatDate } from '@/util/format/formatDate';
 
 import * as S from './Post.styled';
 

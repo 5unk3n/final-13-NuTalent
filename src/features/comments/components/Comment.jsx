@@ -5,7 +5,7 @@ import { useDeleteComment } from '../api/deleteComment';
 import { useReportComment } from '../api/reportComment';
 
 import CircleImage from '@/components/CircleImage';
-import { getTimeAgoFromNow } from '@/util/formatDate';
+import { getTimeAgoFromNow } from '@/util/format/formatDate';
 
 import * as S from './Comment.styled';
 
