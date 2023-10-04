@@ -12,6 +12,7 @@ export const HeaderBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.8rem;
 `;
 
 export const Title = styled.h1`
@@ -38,6 +39,7 @@ const IconButtonStyle = css`
   border: none;
   width: 2.2rem;
   height: 2.2rem;
+  cursor: pointer;
 `;
 
 export const BackButton = styled.button`

@@ -26,6 +26,7 @@ export default function PostList({
     }
   });
 
+  console.log(user);
   if (isLoading) return;
 
   return (

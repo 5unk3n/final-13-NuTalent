@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { forwardRef, useEffect, useState } from 'react';
 
 import { useCheckDuplicateAccountname } from '../api/checkDuplicateAccountname';
 
@@ -17,11 +17,16 @@ import * as S from './ProfileInfoForm.styled';
 const DEFAULT_PROFILE_IMG_URL =
   'https://api.mandarin.weniv.co.kr/1687295086842.png';
 
-export default function ProfileInfoForm({ onSubmit, buttonText, initData }) {
+const ProfileInfoForm = forwardRef(function ProfileInfoForm(
+  { onSubmit, buttonText, initData },
+  submitRef,
+) {
+  const [image, setImage] = useState(initData.image || '');
+  const [username, setUsername] = useState(initData.username || '');
+  const [accountname, setAccountname] = useState(initData.accountname || '');
+  const [intro, setIntro] = useState(initData.intro || '');
+
   const { uploadedImage, handleImageChange } = useUploadImage();
-  const [username, setUsername] = useState('');
-  const [accountname, setAccountname] = useState('');
-  const [intro, setIntro] = useState('');
   const [usernameError, setUsernameError] = useState('');
   const [accountnameError, setAccountnameError] = useState('');
   const { mutateAsync: checkAccountnameMutate } =
@@ -34,7 +39,7 @@ export default function ProfileInfoForm({ onSubmit, buttonText, initData }) {
     const userData = {
       email: initData?.email,
       password: initData?.password,
-      image: uploadedImage || DEFAULT_PROFILE_IMG_URL,
+      image: image || DEFAULT_PROFILE_IMG_URL,
       username,
       accountname,
       intro,
@@ -76,14 +81,17 @@ export default function ProfileInfoForm({ onSubmit, buttonText, initData }) {
     setIntro(newIntro);
   };
 
+  useEffect(() => {
+    if (uploadedImage) {
+      setImage(uploadedImage);
+    }
+  }, [uploadedImage]);
+
   return (
     <form onSubmit={handleSubmit}>
       <S.InputWrapper>
         <S.ProfileImageWrapper>
-          <CircleImage
-            src={uploadedImage || DEFAULT_PROFILE_IMG_URL}
-            size="110"
-          />
+          <CircleImage src={image || DEFAULT_PROFILE_IMG_URL} size="110" />
           <S.UploaderWrapper>
             <ImageUploader onImgaeChange={handleImageChange} size="36" />
           </S.UploaderWrapper>
@@ -113,7 +121,13 @@ export default function ProfileInfoForm({ onSubmit, buttonText, initData }) {
           />
         </TextInput>
       </S.InputWrapper>
-      <Button disabled={isButtonDisabled}>{buttonText}</Button>
+      {buttonText ? (
+        <Button disabled={isButtonDisabled}>{buttonText}</Button>
+      ) : (
+        <button ref={submitRef} />
+      )}
     </form>
   );
-}
+});
+
+export default ProfileInfoForm;

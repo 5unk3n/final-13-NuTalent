@@ -4,9 +4,10 @@ import { signinWithData, signupWithData } from '@/features/auth';
 import { getMyInfo } from '@/features/auth/api/getMyInfo';
 import userStorage from '@/util/userStorage';
 
+export const USER_KEY = 'user';
+
 const useAuth = () => {
   const queryClient = useQueryClient();
-  const USER_KEY = 'user';
   const ONE_HOUR = 1000 * 60 * 60;
 
   const useSignin = () => {

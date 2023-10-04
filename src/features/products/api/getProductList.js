@@ -4,7 +4,7 @@ import instance from '@/libs/axios';
 
 const getProductList = async (accountname) => {
   const { data } = await instance.get(
-    `/product/${accountname}/?limit=Number&skip=Number`,
+    `/product/${accountname}/?limit=infinite&skip=0`,
   );
   return data.product;
 };

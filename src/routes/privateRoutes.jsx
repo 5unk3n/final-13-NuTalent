@@ -52,9 +52,14 @@ export const privateRoutes = [
       {
         path: 'profile',
         children: [
-          { path: ':accountname', element: <ProfileDetailPage /> },
-          { path: 'follower', element: <FollowerPage /> },
-          { path: 'following', element: <FollowingPage /> },
+          {
+            path: ':accountname',
+            children: [
+              { index: true, element: <ProfileDetailPage /> },
+              { path: 'follower', element: <FollowerPage /> },
+              { path: 'following', element: <FollowingPage /> },
+            ],
+          },
         ],
       },
       { path: 'post/:id', element: <PostDetailPage /> },
