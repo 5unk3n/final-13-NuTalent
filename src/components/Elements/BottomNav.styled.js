@@ -25,5 +25,8 @@ export const TabMenuLiLink = styled(Link)`
 
   & > span {
     display: block;
+    font-size: ${({ theme }) => theme.fontSize.xxs};
+    color: ${({ $isCurrentPath, theme }) =>
+      $isCurrentPath ? theme.color.purpleLight : theme.color.gray[500]};
   }
 `;

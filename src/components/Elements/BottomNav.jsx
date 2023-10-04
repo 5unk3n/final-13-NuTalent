@@ -49,21 +49,20 @@ export default function BottomNav() {
 
   return (
     <S.TabMenuUl>
-      {navList.map((navItem) => (
-        <S.TabMenuLi key={navItem.path}>
-          <S.TabMenuLiLink to={navItem.path}>
-            <img
-              src={
-                pathname === navItem.path
-                  ? navItem.activatedImage
-                  : navItem.image
-              }
-              alt={navItem.name}
-            />
-            <span>{navItem.name}</span>
-          </S.TabMenuLiLink>
-        </S.TabMenuLi>
-      ))}
+      {navList.map((navItem) => {
+        const isCurrentPath = pathname === navItem.path;
+        return (
+          <S.TabMenuLi key={navItem.path}>
+            <S.TabMenuLiLink to={navItem.path} $isCurrentPath={isCurrentPath}>
+              <img
+                src={isCurrentPath ? navItem.activatedImage : navItem.image}
+                alt={navItem.name}
+              />
+              <span>{navItem.name}</span>
+            </S.TabMenuLiLink>
+          </S.TabMenuLi>
+        );
+      })}
     </S.TabMenuUl>
   );
 }
