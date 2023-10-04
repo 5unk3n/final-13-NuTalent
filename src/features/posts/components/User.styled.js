@@ -8,6 +8,7 @@ export const UserWrapper = styled.div`
 
 export const UserDetails = styled.div`
   flex-grow: 1;
+  overflow: hidden;
 `;
 
 export const Username = styled.p`
@@ -18,4 +19,7 @@ export const Username = styled.p`
 export const Accountname = styled.p`
   font-size: ${({ theme }) => theme.fontSize.xs};
   color: ${({ theme }) => theme.color.gray[500]};
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `;

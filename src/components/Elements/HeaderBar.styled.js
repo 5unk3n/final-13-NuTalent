@@ -25,11 +25,11 @@ export const SearchInput = styled.input`
   height: 3.2rem;
   margin-left: 1rem;
   padding-left: 1.6rem;
-  background: ${({ theme }) => theme.colors.gray[100]};
+  background: ${({ theme }) => theme.color.gray[100]};
   border-radius: 3.2rem;
 
   &::placeholder {
-    color: ${(theme) => theme.colors.gray[200]};
+    color: ${({ theme }) => theme.color.gray[200]};
   }
 `;
 
