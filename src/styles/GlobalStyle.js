@@ -46,13 +46,6 @@ export const GlobalStyle = createGlobalStyle`
     font-size: inherit;
   }
 
-  button:focus,
-  input:focus,
-  textarea:focus,
-  select:focus {
-    outline: none;
-  }
-
   img {
     vertical-align: bottom;
   }
