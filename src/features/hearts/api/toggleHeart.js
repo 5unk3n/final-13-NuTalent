@@ -15,10 +15,16 @@ const unheart = async (postId) => {
 export const useToggleHeart = () => {
   const queryClient = useQueryClient();
 
+  const toggleHeart = async ({ postId, isHearted }) => {
+    if (isHearted) {
+      await unheart(postId);
+    } else {
+      await heart(postId);
+    }
+  };
+
   return useMutation({
-    mutationFn: ({ postId, isHearted }) => {
-      isHearted ? unheart(postId) : heart(postId);
-    },
+    mutationFn: toggleHeart,
     onSuccess: () => {
       queryClient.invalidateQueries(['post']);
     },
