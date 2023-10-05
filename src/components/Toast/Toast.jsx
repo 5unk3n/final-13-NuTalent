@@ -1,8 +1,8 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 
-import Transition from '../common/Transition/Transition';
 import useCloseAfterTransition from '../../hooks/useCloseAfterTransition';
+import Transition from '../common/Transition/Transition';
 
 import * as S from './Toast.styled';
 
@@ -13,10 +13,10 @@ const Toast = ({ isOpen, status = 'success', message }) => {
     isTransitionComplete &&
     createPortal(
       <S.ToastRoot>
-        <Transition $isOpen={isOpen} transitionStyle="slide">
-          <S.ToastContainer $status={status} $isOpen={isOpen}>
+        <Transition isOpen={isOpen} transitionStyle="slide">
+          <S.ToastWrapper $status={status} $isOpen={isOpen}>
             <span>{message}</span>
-          </S.ToastContainer>
+          </S.ToastWrapper>
         </Transition>
       </S.ToastRoot>,
       document.body,
