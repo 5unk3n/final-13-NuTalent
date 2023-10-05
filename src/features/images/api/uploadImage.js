@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { useState } from 'react';
 
+import { useToast } from '@/hooks/useModal';
 import instance from '@/libs/axios';
 import compressImage from '@/util/compressImage';
 import validateImage from '@/util/validation/validateImage';
@@ -17,6 +18,7 @@ const uploadImage = async (imageFile) => {
 
 export const useUploadImage = () => {
   const [uploadedImage, setUploadedImage] = useState(null);
+  const { openToast } = useToast();
 
   const mutation = useMutation({
     mutationFn: (file) => uploadImage(file),
@@ -31,8 +33,7 @@ export const useUploadImage = () => {
       const compressedImage = await compressImage(image);
       mutation.mutate(compressedImage);
     } catch (error) {
-      alert(error.message);
-      return;
+      openToast({ message: error.message, status: 'error' });
     }
   };
 

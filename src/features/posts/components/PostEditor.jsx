@@ -5,6 +5,7 @@ import TagBar from '@/components/common/TagBar/TagBar';
 import { useUploadImage } from '@/features/images/api/uploadImage';
 import ImageUploader from '@/features/images/components/ImageUploader';
 import useAuth from '@/hooks/useAuth';
+import { useToast } from '@/hooks/useModal';
 import useTag from '@/hooks/useTag';
 import { adjustTextareaHeight } from '@/util/adjustTextareaHeight';
 
@@ -22,6 +23,7 @@ const PostEditor = forwardRef(function PostEditor(
   const { handleImageChange, uploadedImage } = useUploadImage();
   const { useUser } = useAuth();
   const { data: user } = useUser();
+  const { openToast } = useToast();
   const userProfileImage = user.image;
 
   useEffect(() => {
@@ -40,7 +42,10 @@ const PostEditor = forwardRef(function PostEditor(
 
   const handleImageUpload = (e) => {
     if (images.length >= 3) {
-      alert('이미지 업로드는 최대 3개까지 가능합니다');
+      openToast({
+        message: '이미지 업로드는 최대 3개까지 가능합니다',
+        status: 'error',
+      });
       return;
     }
     return handleImageChange(e);

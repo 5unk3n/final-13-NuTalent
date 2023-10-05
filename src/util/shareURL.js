@@ -6,7 +6,6 @@ const shareURL = (url) => {
       });
     } else {
       navigator.clipboard.writeText(url);
-      alert('URL이 클립보드에 복사되었습니다.');
     }
   } catch (error) {
     console.error(error);

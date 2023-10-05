@@ -10,6 +10,26 @@ import {
 export const useToast = () => {
   const [toast, setToast] = useRecoilState(toastState);
 
+  /**
+   * 토스트 메시지를 표시하는 함수입니다.
+   *
+   * @param {Object} options - 토스트 메시지에 표시할 옵션 객체입니다.
+   * @param {string} options.message - 표시할 메시지 내용입니다.
+   * @param {string} [options.status='success'] - 토스트 메시지의 상태를 나타내는 문자열입니다. 가능한 값은 'success', 'error'입니다.
+   * @param {number} [options.duration=2000] - 토스트 메시지가 표시될 시간(밀리초)입니다. 기본값은 2000(ms)입니다.
+   *
+   * @returns {void}
+   *
+   * @example
+   * // 토스트 메시지 열기
+   * const { openToast } = useToast();
+   * openToast({
+   *   message: '작업이 완료되었습니다.',
+   *   status: 'success',
+   *   duration: 3000
+   * });
+   */
+
   const openToast = ({ message, status = 'success', duration = 2000 }) => {
     setToast({
       isOpen: true,

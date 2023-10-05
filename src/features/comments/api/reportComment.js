@@ -1,5 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 
+import { useToast } from '@/hooks/useModal';
 import instance from '@/libs/axios';
 
 const reportComment = async (postId, commentId) => {
@@ -10,10 +11,14 @@ const reportComment = async (postId, commentId) => {
 };
 
 export const useReportComment = (postId) => {
+  const { openToast } = useToast();
+
   return useMutation({
     mutationFn: (commentId) => reportComment(postId, commentId),
     onSuccess: () => {
-      alert(`신고가 완료되었습니다.`);
+      openToast({
+        message: '신고가 완료되었습니다.',
+      });
     },
   });
 };

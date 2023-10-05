@@ -1,5 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
+import { useToast } from './useModal';
+
 import { signinWithData, signupWithData } from '@/features/auth';
 import { getMyInfo } from '@/features/auth/api/getMyInfo';
 import userStorage from '@/util/userStorage';
@@ -8,6 +10,7 @@ export const USER_KEY = 'user';
 
 const useAuth = () => {
   const queryClient = useQueryClient();
+  const { openToast } = useToast();
   const ONE_HOUR = 1000 * 60 * 60;
 
   const useSignin = () => {
@@ -33,7 +36,7 @@ const useAuth = () => {
     return useMutation({
       mutationFn: (signupData) => signupWithData(signupData),
       onSuccess: () => {
-        alert('회원가입에 성공하였습니다!');
+        openToast({ message: '회원가입에 성공하였습니다!' });
       },
     });
   };
