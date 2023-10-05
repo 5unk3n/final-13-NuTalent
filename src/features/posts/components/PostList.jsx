@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import Post from './Post';
 import { useGetPostList } from '../api/getPostList';
 
-import useAuth from '@/hooks/useAuth';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 
 import * as S from './PostList.styled';
@@ -13,20 +13,18 @@ export default function PostList({
   hasViewController = false,
 }) {
   const [viewType, setViewType] = useState('list');
-  const { useUser } = useAuth();
-  const { data: user } = useUser();
+  const { accountname } = useParams();
   const {
     data: posts,
     isLoading,
     fetchNextPage,
-  } = useGetPostList(user.accountname, postType);
+  } = useGetPostList(accountname, postType);
   const ref = useIntersectionObserver(([entry]) => {
     if (entry.isIntersecting) {
       fetchNextPage();
     }
   });
 
-  console.log(user);
   if (isLoading) return;
 
   return (
