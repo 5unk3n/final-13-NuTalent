@@ -27,7 +27,8 @@ export const AlertTitle = styled.span`
 
 export const AlertContent = styled.div`
   button {
-    padding: 1.5rem 4.5rem;
+    width: 12.6rem;
+    height: 4.6rem;
 
     &:hover {
       background-color: ${({ theme }) => theme.color.gray[100]};
