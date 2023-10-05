@@ -31,10 +31,15 @@ export const ChatWrapper = styled.div`
 `;
 
 export const ChatContent = styled.span`
+  width: 0;
   flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   color: ${({ theme }) => theme.color.gray[500]};
 `;
 
 export const ChatTime = styled.span`
   color: ${({ theme }) => theme.color.gray[400]};
+  flex-shrink: 0;
 `;
