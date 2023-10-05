@@ -23,13 +23,10 @@ export default function PostUploadPage() {
 
   if (isLoading) return;
 
-  console.log(post.image);
-
   const initData = {
     content: contentWithoutTag(post.content),
     image: post.image && post.image.split(','),
   };
-  console.log(initData);
 
   return (
     <>

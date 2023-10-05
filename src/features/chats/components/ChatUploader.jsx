@@ -4,7 +4,7 @@ import imgUploadIcon from '@/assets/img/img-button.svg';
 import BottomInputForm from '@/components/Elements/BottomInputForm';
 
 export default function ChatUploader() {
-  const handleSubmit = (e) => {
+  const handleSubmit = () => {
     // 채팅 메시지 전송 로직
   };
 
