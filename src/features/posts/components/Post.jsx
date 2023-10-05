@@ -1,25 +1,64 @@
 import React from 'react';
 
 import User from './User';
+import { useDeletePost } from '../api/deletePost';
+import { useReportPost } from '../api/reportPost';
 
 import Carousel from '@/components/common/Carousel/Carousel';
 import { useToggleHeart } from '@/features/hearts/api/toggleHeart';
+import useAuth from '@/hooks/useAuth';
+import { useAlert, useBottomSheet } from '@/hooks/useModal';
 import useTag from '@/hooks/useTag';
 import { formatDate } from '@/util/format/formatDate';
 
 import * as S from './Post.styled';
 
-// TODO: 옵션(모달) 추가 및 삭제 기능 추가
 export default function PostItem({ postData }) {
+  const { useUser } = useAuth();
+  const { data: user } = useUser();
+  const { mutate: deletePostMutate } = useDeletePost();
+  const { mutate: reportPostMutate } = useReportPost();
+  const { openBottomSheet } = useBottomSheet();
+  const { openAlert } = useAlert();
   const { mutate: toggleHeartMutate } = useToggleHeart();
   const { contentWithoutTag } = useTag();
   const formattedCreatedDate = formatDate(postData.createdAt);
+  const isMyPost = user._id === postData.author._id;
 
   const toggleHeart = () => {
     toggleHeartMutate({
       postId: postData.id,
       isHearted: postData.hearted,
     });
+  };
+
+  const openMyPostBottomSheet = () => {
+    const deletePost = () => {
+      openAlert({
+        title: '게시글을 삭제할까요?',
+        actionName: '삭제',
+        actionFunction: () => deletePostMutate(postData.id),
+      });
+    };
+
+    openBottomSheet([
+      { name: '삭제', action: deletePost, closeAfterAction: true },
+      { name: '수정', to: `/post/edit/${postData.id}`, closeAfterAction: true },
+    ]);
+  };
+
+  const openNotMyPostBottomSheet = () => {
+    const reportPost = () => {
+      openAlert({
+        title: '게시글을 신고할까요?',
+        actionName: '신고',
+        actionFunction: () => reportPostMutate(postData.id),
+      });
+    };
+
+    openBottomSheet([
+      { name: '신고하기', action: reportPost, closeAfterAction: true },
+    ]);
   };
 
   return (
@@ -40,7 +79,9 @@ export default function PostItem({ postData }) {
           </S.ButtonWrapper>
           <S.PostDate>{formattedCreatedDate}</S.PostDate>
         </S.ContentWrapper>
-        <S.OptionButton />
+        <S.OptionButton
+          onClick={isMyPost ? openMyPostBottomSheet : openNotMyPostBottomSheet}
+        />
       </S.PostWrapper>
     </>
   );

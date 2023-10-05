@@ -52,7 +52,7 @@ export default function ChatRoomPage() {
       <HeaderBar>
         <HeaderBar.BackButton />
         <HeaderBar.Title>{accountname}</HeaderBar.Title>
-        <HeaderBar.OptionButton />
+        <HeaderBar.OptionButton type="chatroom" />
       </HeaderBar>
       <S.Section>
         <ChatRoomDetail chatData={dummyChatData} />

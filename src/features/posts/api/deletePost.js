@@ -7,19 +7,13 @@ const deletePost = async (postId) => {
   return data;
 };
 
-export const useDeletePost = (accountname) => {
+export const useDeletePost = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: (postId) => deletePost(postId),
-    onSuccess: (_, postId) => {
-      queryClient.setQueryData(['post', accountname, 'user'], (oldData) => {
-        const oldPages = oldData.pages;
-        const newPages = oldPages.map((page) =>
-          page.filter((post) => post.id !== postId),
-        );
-        return { ...oldData, pages: newPages };
-      });
+    onSuccess: () => {
+      queryClient.invalidateQueries(['post']);
     },
   });
 };

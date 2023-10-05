@@ -7,12 +7,11 @@ const deleteProduct = async (productId) => {
   return data;
 };
 
-export const useDeleteProduct = (accountname) => {
+export const useDeleteProduct = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: (productId) => deleteProduct(productId),
-    // FIXME: setQueryData
-    onSuccess: () => queryClient.invalidateQueries(['product', accountname]),
+    onSuccess: () => queryClient.invalidateQueries(['product']),
   });
 };

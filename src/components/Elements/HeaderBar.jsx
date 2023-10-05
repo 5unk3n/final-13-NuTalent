@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 
+import useAuth from '@/hooks/useAuth';
+import { useAlert, useBottomSheet } from '@/hooks/useModal';
+
 import * as S from './HeaderBar.styled';
 
 export default function HeaderBar({ children }) {
@@ -38,9 +41,57 @@ function BackButton() {
   );
 }
 
-function OptionButton() {
-  // TODO: 옵션 버튼 구현 (모달 오픈)
-  return <S.OptionButton />;
+function OptionButton({ type = 'basic' }) {
+  const navigate = useNavigate();
+  const { signout } = useAuth();
+  const { openBottomSheet } = useBottomSheet();
+  const { openAlert } = useAlert();
+
+  const openSignoutBottomSheet = () => {
+    const openSignoutAlert = () => {
+      openAlert({
+        title: '로그아웃 하시겠습니까?',
+        actionName: '로그아웃',
+        actionFunction: signout,
+      });
+    };
+
+    openBottomSheet([
+      {
+        name: '로그아웃',
+        action: openSignoutAlert,
+        closeAfterAction: true,
+      },
+    ]);
+  };
+
+  const openExitChatroomBottomSheet = () => {
+    const openExitChatroomAlert = () => {
+      openAlert({
+        title: '채팅방을 나가시겠습니까?',
+        actionName: '채팅방 나가기',
+        actionFunction: () => navigate('/chat'),
+      });
+    };
+
+    openBottomSheet([
+      {
+        name: '채팅방 나가기',
+        action: openExitChatroomAlert,
+        closeAfterAction: true,
+      },
+    ]);
+  };
+
+  return (
+    <S.OptionButton
+      onClick={
+        type === 'chatroom'
+          ? openExitChatroomBottomSheet
+          : openSignoutBottomSheet
+      }
+    />
+  );
 }
 
 function SearchButton() {

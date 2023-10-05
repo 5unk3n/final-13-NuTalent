@@ -13,7 +13,13 @@ const BottomSheet = ({ isOpen, onClose, elementList }) => {
 
   const handleClick = (element) => {
     if (element.action) element.action();
-    if (element.to) navigate(element.to);
+    if (element.to) {
+      if (element.to.startsWith('/')) {
+        navigate(element.to);
+      } else {
+        window.open(element.to, '_blank');
+      }
+    }
     if (element.closeAfterAction) closeBottomSheet();
   };
 

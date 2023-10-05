@@ -7,12 +7,11 @@ const reportPost = async (postId) => {
   return data;
 };
 
-export const useReportPost = (postId) => {
-  const { mutate: reportPostMutate } = useMutation({
-    mutationFn: () => reportPost(postId),
+export const useReportPost = () => {
+  return useMutation({
+    mutationFn: (postId) => reportPost(postId),
     onSuccess: () => {
       alert(`신고가 완료되었습니다.`);
     },
   });
-  return { reportPostMutate };
 };
