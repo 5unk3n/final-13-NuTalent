@@ -1,12 +1,14 @@
-import React, { createContext, forwardRef, useContext } from 'react';
+import React, { createContext, forwardRef, useContext, useId } from 'react';
 
 import * as S from './TextInput.styled';
 
 const InputContext = createContext(null);
 
-export default function TextInput({ id, label, children, ...props }) {
+export default function TextInput({ label, children, ...props }) {
   const child = React.Children.only(children);
   const error = child.props.error;
+  const generatedId = useId();
+  const id = child.props.id || `text-input-${generatedId}`;
 
   return (
     <InputContext.Provider value={{ id }}>

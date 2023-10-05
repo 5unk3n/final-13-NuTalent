@@ -69,7 +69,7 @@ export default function SignupForm({ formType }) {
   return (
     <form onSubmit={handleSubmit} noValidate>
       <S.InputWrapper>
-        <TextInput id="emailInput" label="이메일">
+        <TextInput label="이메일">
           <TextInput.TextField
             type="email"
             value={email}
@@ -79,7 +79,7 @@ export default function SignupForm({ formType }) {
             error={emailError}
           />
         </TextInput>
-        <TextInput id="passwordInput" label="비밀번호">
+        <TextInput label="비밀번호">
           <TextInput.TextField
             type="password"
             value={password}
