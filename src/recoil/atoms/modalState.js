@@ -15,7 +15,7 @@ export const alertState = atom({
   default: {
     isOpen: false,
     title: null,
-    actionText: null,
+    actionName: null,
     actionFunction: null,
   },
 });
@@ -24,7 +24,14 @@ export const bottomSheetState = atom({
   key: 'bottomSheetState',
   default: {
     isOpen: false,
-    children: null,
     onClose: null,
+    elementList: [
+      {
+        name: null,
+        action: null,
+        to: null,
+        closeAfterAction: false,
+      },
+    ],
   },
 });

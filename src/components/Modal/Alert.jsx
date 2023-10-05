@@ -1,24 +1,28 @@
 import React from 'react';
 
-import Modal from '../../Modal/Modal';
+import Modal from './Modal';
+
+import { useAlert } from '@/hooks/useModal';
 
 import * as S from './Alert.styled';
 
 export default function Alert({
   isOpen,
   title,
-  actionText,
+  actionName,
   actionFunction,
   onClose,
 }) {
+  const { closeAlert } = useAlert();
+
   const handleAction = () => {
     actionFunction();
-    onClose();
+    closeAlert();
   };
 
   return (
     <Modal isOpen={isOpen} hasBackdrop onClose={onClose}>
-      <S.AlertContainer>
+      <S.AlertWrapper>
         <S.Alert>
           <S.AlertTitle>{title}</S.AlertTitle>
           <S.AlertContent>
@@ -26,11 +30,11 @@ export default function Alert({
               취소
             </button>
             <button type="button" onClick={handleAction}>
-              {actionText}
+              {actionName}
             </button>
           </S.AlertContent>
         </S.Alert>
-      </S.AlertContainer>
+      </S.AlertWrapper>
     </Modal>
   );
 }
