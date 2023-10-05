@@ -21,10 +21,10 @@ const ProfileInfoForm = forwardRef(function ProfileInfoForm(
   { onSubmit, buttonText, initData },
   submitRef,
 ) {
-  const [image, setImage] = useState(initData.image || '');
-  const [username, setUsername] = useState(initData.username || '');
-  const [accountname, setAccountname] = useState(initData.accountname || '');
-  const [intro, setIntro] = useState(initData.intro || '');
+  const [image, setImage] = useState(initData?.image || '');
+  const [username, setUsername] = useState(initData?.username || '');
+  const [accountname, setAccountname] = useState(initData?.accountname || '');
+  const [intro, setIntro] = useState(initData?.intro || '');
 
   const { uploadedImage, handleImageChange } = useUploadImage();
   const [usernameError, setUsernameError] = useState('');
