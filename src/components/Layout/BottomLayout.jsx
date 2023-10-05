@@ -1,9 +1,9 @@
 import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 
-import BottomInputForm from '../Elements/BottomInputForm';
 import BottomNav from '../Elements/BottomNav';
 
+import ChatUploader from '@/features/chats/components/ChatUploader';
 import CommentUploader from '@/features/comments/components/CommentUploader';
 
 import * as S from './BottomLayout.styled';
@@ -15,9 +15,8 @@ export default function BottomLayout() {
     const chatRegex = /^\/chat\/(\w+)$/;
     const postRegex = /^\/post\/(\w+)$/;
 
-    // TODO: BottomInputForm 재사용해서 각각 만들기
     if (chatRegex.test(pathname)) {
-      return <BottomInputForm />;
+      return <ChatUploader />;
     } else if (postRegex.test(pathname)) {
       return <CommentUploader />;
     } else {
