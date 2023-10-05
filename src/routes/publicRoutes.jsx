@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 import authRoutes from '@/features/auth/routes';
 
 export const PublicRoute = ({ user }) => {
-  return user ? <Navigate to="/home" /> : <Outlet />;
+  return user ? <Navigate to="/home" replace /> : <Outlet />;
 };
 
 export const publicRoutes = [...authRoutes];

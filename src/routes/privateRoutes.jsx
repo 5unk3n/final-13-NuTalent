@@ -5,6 +5,7 @@ import BottomLayout from '@/components/Layout/BottomLayout';
 import MainLayout from '@/components/Layout/MainLayout';
 import ChatPage from '@/features/chats/routes/ChatPage';
 import ChatRoomPage from '@/features/chats/routes/ChatRoomPage';
+import NotFoundPage from '@/features/misc/routes/NotFoundPage';
 import HomePage from '@/features/posts/routes/HomePage';
 import PostDetailPage from '@/features/posts/routes/PostDetailPage';
 import PostEditPage from '@/features/posts/routes/PostEditPage';
@@ -18,7 +19,7 @@ import ProfileEditPage from '@/features/profiles/routes/ProfileEditPage';
 import SearchPage from '@/features/searches/routes/SearchPage';
 
 export const PrivateRoute = ({ user }) => {
-  return user ? <MainLayout /> : <Navigate to="/signin" />;
+  return user ? <MainLayout /> : <Navigate to="/signin" replace />;
 };
 
 export const privateRoutes = [
@@ -26,6 +27,7 @@ export const privateRoutes = [
   {
     path: 'post',
     children: [
+      { index: true, element: <NotFoundPage /> },
       { path: 'upload', element: <PostUploadPage /> },
       { path: 'edit/:id', element: <PostEditPage /> },
     ],
@@ -33,6 +35,7 @@ export const privateRoutes = [
   {
     path: 'product',
     children: [
+      { index: true, element: <NotFoundPage /> },
       { path: 'upload', element: <ProductUploadPage /> },
       { path: 'edit/:id', element: <ProductEditPage /> },
     ],
