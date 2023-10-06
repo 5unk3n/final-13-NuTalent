@@ -12,8 +12,7 @@ import { getTimeAgoFromNow } from '@/util/format/formatDate';
 import * as S from './Comment.styled';
 
 export default function Comment({ comment, postId }) {
-  const { useUser } = useAuth();
-  const { data: user } = useUser();
+  const { user } = useAuth();
   const { mutate: reportCommentMutate } = useReportComment(postId);
   const { mutate: deleteCommentMutate } = useDeleteComment(postId);
   const { openBottomSheet } = useBottomSheet();

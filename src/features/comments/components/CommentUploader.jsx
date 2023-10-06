@@ -7,8 +7,7 @@ import BottomInputForm from '@/components/Elements/BottomInputForm';
 import useAuth from '@/hooks/useAuth';
 
 export default function CommentUploader() {
-  const { useUser } = useAuth();
-  const { data: user } = useUser();
+  const { user } = useAuth();
   const { id } = useParams();
   const { mutate: createComment } = useCreateComment(id);
 

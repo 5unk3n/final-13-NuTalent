@@ -8,8 +8,7 @@ import useAuth from '@/hooks/useAuth';
 export default function SignupProfilePage() {
   const navigate = useNavigate();
   const { state } = useLocation();
-  const { useSignup } = useAuth();
-  const { mutate: signupMutate } = useSignup();
+  const { signup } = useAuth();
   const [emailAndPassword, setEmailAndPassword] = useState(null);
 
   useEffect(() => {
@@ -22,7 +21,7 @@ export default function SignupProfilePage() {
 
   return (
     <ProfileInfoForm
-      onSubmit={signupMutate}
+      onSubmit={signup}
       buttonText="내 작품을 세상에 소개하러 가기"
       initData={emailAndPassword}
     />

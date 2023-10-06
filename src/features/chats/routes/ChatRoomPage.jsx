@@ -9,8 +9,7 @@ import useAuth from '@/hooks/useAuth';
 import * as S from './ChatRoomPage.styled';
 
 export default function ChatRoomPage() {
-  const { useUser } = useAuth();
-  const { data: user } = useUser();
+  const { user } = useAuth();
 
   const { accountname } = useParams();
 

@@ -8,8 +8,7 @@ import { useAlert, useBottomSheet } from '@/hooks/useModal';
 import * as S from './Product.styled';
 
 export default function Product({ product }) {
-  const { useUser } = useAuth();
-  const { data: user } = useUser();
+  const { user } = useAuth();
   const { mutate: deleteProductMutate } = useDeleteProduct();
   const { openBottomSheet } = useBottomSheet();
   const { openAlert } = useAlert();

@@ -14,8 +14,7 @@ import useAuth from '@/hooks/useAuth';
 import * as S from './BottomNav.styled';
 
 export default function BottomNav() {
-  const { useUser } = useAuth();
-  const { data: user } = useUser();
+  const { user } = useAuth();
   const accountname = user.accountname;
 
   const navList = [

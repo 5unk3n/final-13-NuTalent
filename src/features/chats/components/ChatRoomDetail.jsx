@@ -7,8 +7,7 @@ import useAuth from '@/hooks/useAuth';
 import * as S from './ChatRoomDetail.styled';
 
 export default function ChatRoomDetail({ chatData }) {
-  const { useUser } = useAuth();
-  const { data: user } = useUser();
+  const { user } = useAuth();
 
   return (
     <S.ChatRoomDetail>

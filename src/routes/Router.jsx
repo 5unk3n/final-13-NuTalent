@@ -10,8 +10,7 @@ import SplashPage from '@/features/misc/routes/SplashPage';
 import useAuth from '@/hooks/useAuth';
 
 export default function Router() {
-  const { useUser } = useAuth();
-  const { data: user } = useUser();
+  const { user } = useAuth();
 
   const commonRoutes = [
     {

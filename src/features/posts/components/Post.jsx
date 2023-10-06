@@ -14,8 +14,7 @@ import { formatDate } from '@/util/format/formatDate';
 import * as S from './Post.styled';
 
 export default function PostItem({ postData }) {
-  const { useUser } = useAuth();
-  const { data: user } = useUser();
+  const { user } = useAuth();
   const { mutate: deletePostMutate } = useDeletePost();
   const { mutate: reportPostMutate } = useReportPost();
   const { openBottomSheet } = useBottomSheet();

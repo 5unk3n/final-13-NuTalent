@@ -13,8 +13,7 @@ import * as S from './Profile.styled';
 
 export default function Profile() {
   const { accountname } = useParams();
-  const { useUser } = useAuth();
-  const { data: user } = useUser();
+  const { user } = useAuth();
   const myAccountname = user.accountname;
   const { data: profile, isLoading } = useGetProfile(accountname);
 

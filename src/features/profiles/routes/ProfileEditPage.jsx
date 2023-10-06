@@ -11,8 +11,7 @@ import * as S from './ProfileEditPage.styled';
 
 export default function ProfileEditPage() {
   const submitRef = useRef(null);
-  const { useUser } = useAuth();
-  const { data: user } = useUser();
+  const { user } = useAuth();
   const { mutate: updateProfile } = useUpdateProfile();
 
   const handleSubmit = () => {

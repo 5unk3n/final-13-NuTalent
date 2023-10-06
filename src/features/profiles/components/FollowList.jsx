@@ -6,8 +6,7 @@ import useAuth from '@/hooks/useAuth';
 import * as S from './FollowList.styled';
 
 export default function FollowList({ userList }) {
-  const { useUser } = useAuth();
-  const { data: myInfo } = useUser();
+  const { user: myInfo } = useAuth();
 
   return (
     <S.FollowList>

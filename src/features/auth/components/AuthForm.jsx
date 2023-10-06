@@ -25,13 +25,12 @@ export default function SignupForm({ formType }) {
 
   const navigate = useNavigate();
   const { mutateAsync: checkEmailMutate } = useCheckDuplicateEmail();
-  const { useSignin } = useAuth();
-  const { mutate: signinMutate, error: signinError } = useSignin();
+  const { signin } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formType === 'signin') {
-      signinMutate({ email, password });
+      signin({ email, password });
     } else if (formType === 'signup') {
       navigate('/signup/profile', { state: { email, password } });
     }
@@ -61,10 +60,6 @@ export default function SignupForm({ formType }) {
       setPasswordError('비밀번호는 6자 이상이어야 합니다.');
     }
   };
-
-  useEffect(() => {
-    setPasswordError(signinError?.message);
-  }, [signinError]);
 
   return (
     <form onSubmit={handleSubmit} noValidate>

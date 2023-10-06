@@ -21,8 +21,7 @@ const PostEditor = forwardRef(function PostEditor(
 
   const { tagList, selectedTag, selectTag, addTagToContent } = useTag();
   const { handleImageChange, uploadedImage } = useUploadImage();
-  const { useUser } = useAuth();
-  const { data: user } = useUser();
+  const { user } = useAuth();
   const { openToast } = useToast();
   const userProfileImage = user.image;
 
