@@ -1,4 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useNavigate } from 'react-router-dom';
 
 import { useToast } from './useModal';
 
@@ -10,6 +11,7 @@ export const USER_KEY = 'user';
 
 const useAuth = () => {
   const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const { openToast } = useToast();
   const ONE_HOUR = 1000 * 60 * 60;
 
@@ -29,6 +31,8 @@ const useAuth = () => {
         userStorage.setUser(user);
         setUserQueryData(res.user);
       },
+      onError: (error) =>
+        openToast({ message: error.message, status: 'error' }),
     });
   };
 
@@ -36,7 +40,11 @@ const useAuth = () => {
     return useMutation({
       mutationFn: (signupData) => signupWithData(signupData),
       onSuccess: () => {
+        navigate('/signin');
         openToast({ message: '회원가입에 성공하였습니다!' });
+      },
+      onError: (error) => {
+        openToast({ message: error.response.data.message, status: 'error' });
       },
     });
   };
