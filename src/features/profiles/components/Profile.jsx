@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import FollowButton from './FollowButton';
+import ProfileSkeleton from './ProfileSkeleton';
 import { useGetProfile } from '../api/getProfile';
 
 import CircleImage from '@/components/CircleImage';
@@ -17,7 +18,7 @@ export default function Profile() {
   const myAccountname = user.accountname;
   const { data: profile, isLoading } = useGetProfile(accountname);
 
-  if (isLoading) return;
+  if (isLoading) return <ProfileSkeleton />;
 
   const isMyProfile = profile.accountname === myAccountname;
 

@@ -44,7 +44,7 @@ const albumView = css`
 
 export const PostList = styled.ul`
   padding: 1.6rem;
-  ${(props) => (props.$viewType === 'list' ? listView : albumView)}
+  ${(props) => (props.$viewType === 'album' ? albumView : listView)}
 `;
 
 export const AlbumImg = styled.img`
