@@ -47,9 +47,9 @@ const StyledBtn = css`
 
   cursor: pointer;
 
-  ${(props) => sizes[props.size || 'l']}
+  ${(props) => sizes[props.size]}
   ${(props) => props.width && `width: ${props.width};`}
-  ${(props) => colors[props.color || 'fill']}
+  ${(props) => colors[props.color]}
 
   &:disabled {
     background-color: #c2a9ce;
