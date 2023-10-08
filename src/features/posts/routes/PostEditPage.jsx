@@ -4,10 +4,10 @@ import { useParams } from 'react-router-dom';
 import { useGetPost } from '../api/getPost';
 import { useUpdatePost } from '../api/updatePost';
 import PostEditor from '../components/PostEditor';
+import useTag from '../hooks/useTag';
 
 import Button from '@/components/common/Button/Button';
 import HeaderBar from '@/components/Elements/HeaderBar';
-import useTag from '@/hooks/useTag';
 
 // TODO: 입력 없이 제출할 때 피드백 추가하기
 export default function PostUploadPage() {
@@ -15,7 +15,7 @@ export default function PostUploadPage() {
   const submitRef = useRef(null);
   const { data: post, isLoading } = useGetPost(id);
   const { mutate: updatePostMutate } = useUpdatePost(id);
-  const { contentWithoutTag } = useTag();
+  const { getContentInText } = useTag();
 
   const handleSubmit = () => {
     submitRef.current?.click();
@@ -24,7 +24,7 @@ export default function PostUploadPage() {
   if (isLoading) return;
 
   const initData = {
-    content: contentWithoutTag(post.content),
+    content: getContentInText(post.content),
     image: post.image && post.image.split(','),
   };
 

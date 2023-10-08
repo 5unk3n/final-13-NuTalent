@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect, forwardRef } from 'react';
 
+import TagBar from './TagBar';
+import useTag from '../hooks/useTag';
+
 import CircleImage from '@/components/CircleImage';
-import TagBar from '@/components/common/TagBar/TagBar';
 import { useUploadImage } from '@/features/images/api/uploadImage';
 import ImageUploader from '@/features/images/components/ImageUploader';
 import useAuth from '@/hooks/useAuth';
 import { useToast } from '@/hooks/useModal';
-import useTag from '@/hooks/useTag';
 import { adjustTextareaHeight } from '@/util/adjustTextareaHeight';
 
 import * as S from './PostEditor.styled';

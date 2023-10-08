@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Post from './Post';
+import TagBar from './TagBar';
 import { useGetPostList } from '../api/getPostList';
+import useTag from '../hooks/useTag';
 
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 
@@ -11,6 +13,7 @@ import * as S from './PostList.styled';
 export default function PostList({
   postType = 'feed',
   hasViewController = false,
+  hasTagBar = false,
 }) {
   const [viewType, setViewType] = useState('list');
   const { accountname } = useParams();
@@ -24,6 +27,8 @@ export default function PostList({
       fetchNextPage();
     }
   });
+  const { tagList, selectTag, selectedTag, filterPostPages } = useTag();
+  const filteredPostPages = filterPostPages(posts?.pages);
 
   if (isLoading) return;
 
@@ -43,8 +48,15 @@ export default function PostList({
           ></S.viewButton>
         </S.ViewControllerWrapper>
       )}
+      {hasTagBar && (
+        <TagBar
+          tagList={tagList}
+          selectTag={selectTag}
+          selectedTag={selectedTag}
+        />
+      )}
       <S.PostList $viewType={viewType}>
-        {posts.pages.map((page) => {
+        {filteredPostPages.map((page) => {
           return page.map((post) => {
             return viewType === 'list' ? (
               <li key={post.id}>

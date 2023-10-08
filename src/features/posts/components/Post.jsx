@@ -3,12 +3,12 @@ import React from 'react';
 import User from './User';
 import { useDeletePost } from '../api/deletePost';
 import { useReportPost } from '../api/reportPost';
+import useTag from '../hooks/useTag';
 
 import Carousel from '@/components/common/Carousel/Carousel';
 import { useToggleHeart } from '@/features/hearts/api/toggleHeart';
 import useAuth from '@/hooks/useAuth';
 import { useAlert, useBottomSheet } from '@/hooks/useModal';
-import useTag from '@/hooks/useTag';
 import { formatDate } from '@/util/format/formatDate';
 
 import * as S from './Post.styled';
@@ -20,7 +20,7 @@ export default function PostItem({ postData }) {
   const { openBottomSheet } = useBottomSheet();
   const { openAlert } = useAlert();
   const { mutate: toggleHeartMutate } = useToggleHeart();
-  const { contentWithoutTag } = useTag();
+  const { getContentInText } = useTag();
   const formattedCreatedDate = formatDate(postData.createdAt);
   const isMyPost = user._id === postData.author._id;
 
@@ -65,7 +65,7 @@ export default function PostItem({ postData }) {
       <S.PostWrapper>
         <User user={postData.author} imageSize="42" />
         <S.ContentWrapper>
-          <S.PostText>{contentWithoutTag(postData.content)}</S.PostText>
+          <S.PostText>{getContentInText(postData.content)}</S.PostText>
           {postData.image && <Carousel images={postData.image} />}
           <S.ButtonWrapper>
             <S.HeartButton

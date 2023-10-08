@@ -20,30 +20,39 @@ const useTag = () => {
     return content;
   };
 
-  const contentWithoutTag = (content) => {
-    return content.replace(tagRegex, '');
+  const getContentInText = (text) => {
+    return text.replace(tagRegex, '');
   };
 
-  const checkTagInContent = (content, tag) => {
-    if (content.includes(`[tag: ${tag}]`)) {
+  const getTagInText = (text) => {
+    return text.match(tagRegex)?.[0].slice(6, -1);
+  };
+
+  const checkTagInText = (text) => {
+    if (text.includes(`[tag: ${selectedTag}]`)) {
       return true;
     }
     return false;
   };
 
-  const getTagInContent = (content) => {
-    const tag = content.match(tagRegex)?.[0].slice(6, -1);
-    return tag;
+  const filterPostPages = (postPages) => {
+    if (selectedTag === null) {
+      return postPages;
+    } else {
+      return postPages.map((page) =>
+        page.filter((post) => checkTagInText(post.content)),
+      );
+    }
   };
 
   return {
     tagList,
     selectedTag,
     selectTag,
+    filterPostPages,
     addTagToContent,
-    contentWithoutTag,
-    checkTagInContent,
-    getTagInContent,
+    getTagInText,
+    getContentInText,
   };
 };
 

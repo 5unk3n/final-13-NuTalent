@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from '../Button/Button';
+import Button from '@/components/common/Button/Button';
 
 import * as S from './TagBar.styled';
 

@@ -11,7 +11,7 @@ export default function HomePage() {
         <HeaderBar.Title>Home</HeaderBar.Title>
         <HeaderBar.SearchButton />
       </HeaderBar>
-      <PostList />
+      <PostList hasTagBar />
     </>
   );
 }
