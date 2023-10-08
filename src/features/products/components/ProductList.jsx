@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 import Product from './Product';
+import ProductListSkeleton from './ProductListSkeleton';
 import { useGetProductList } from '../api/getProductList';
 
 import * as S from './ProductList.styled';
@@ -11,7 +12,7 @@ export default function ProductList() {
 
   const { data: productList, isLoading } = useGetProductList(accountname);
 
-  if (isLoading) return;
+  if (isLoading) return <ProductListSkeleton />;
 
   return (
     <S.ProductListWrapper>
