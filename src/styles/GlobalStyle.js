@@ -31,9 +31,6 @@ export const GlobalStyle = createGlobalStyle`
   a {
     color: inherit;
     text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   button,
@@ -49,10 +46,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: inherit;
   }
 
-  button:focus,
-  input:focus,
-  textarea:focus,
-  select:focus {
-    outline: none;
+  img {
+    vertical-align: bottom;
   }
 `;

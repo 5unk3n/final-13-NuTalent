@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-import Transition from '../common/Transition/Transition';
 import useCloseAfterTransition from '../../hooks/useCloseAfterTransition';
+import Transition from '../common/Transition/Transition';
 
 import * as S from './Modal.styled';
 
@@ -38,11 +38,11 @@ export default function Modal({
           $isOpen={isOpen}
           $hasBackdrop={hasBackdrop}
         />
-        <S.ModalContainer $position={position}>
+        <S.ModalWrapper $position={position}>
           <Transition isOpen={isOpen} transitionStyle={transitionStyle}>
             {children}
           </Transition>
-        </S.ModalContainer>
+        </S.ModalWrapper>
       </S.ModalRoot>,
       document.body,
     )

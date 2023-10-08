@@ -50,7 +50,7 @@ const position = {
   `,
 };
 
-export const ModalContainer = styled.div`
+export const ModalWrapper = styled.div`
   position: absolute;
   ${({ $position }) => position[$position]}
 `;

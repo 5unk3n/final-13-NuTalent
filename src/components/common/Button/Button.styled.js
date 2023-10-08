@@ -32,7 +32,7 @@ const colors = {
   `,
   outline: css`
     background: ${({ theme }) => theme.color.white};
-    background-color: ${({ theme }) => theme.color.purpleLight};
+    border: ${({ theme }) => theme.color.purpleLight} 0.1rem solid;
     color: ${({ theme }) => theme.color.purpleLight};
   `,
   outlineGray: css`
@@ -60,4 +60,7 @@ export const StyledButton = styled.button`
 
 export const StyledLink = styled(Link)`
   ${StyledBtn}
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
