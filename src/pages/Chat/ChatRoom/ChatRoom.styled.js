@@ -11,7 +11,6 @@ export const Container = styled.div`
   gap: 1rem;
 `;
 
-// chat area
 export const ChatArticle = styled.article`
   align-self: flex-start;
   display: flex;
@@ -48,7 +47,6 @@ export const ChatArticle = styled.article`
   }
 `;
 
-// send area
 export const ChatForm = styled.form`
   position: fixed;
   bottom: 0;
@@ -88,7 +86,7 @@ export const SendButton = styled.button`
   font-size: 1.4rem;
   color: var(--sub-purple);
   cursor: pointer;
-  
+
   &:disabled {
     color: #c4c4c4;
   }

@@ -12,7 +12,7 @@ const getProfile = async (accName) => {
 const updateProfile = async (user) => {
   const { data } = await instance.put('/user', user);
   return data;
-}
+};
 
 export const useGetProfile = (accountname) => {
   const { data: profile } = useQuery({
@@ -33,7 +33,6 @@ export const useUpdateProfile = () => {
   const { mutate: updateProfileMutate } = useMutation({
     mutationFn: (user) => updateProfile(user),
     onSuccess: (res) => {
-      console.log('res', res);
       setCurrentUserData({
         ...myInfo,
         accountname: res.user.accountname,
@@ -43,7 +42,7 @@ export const useUpdateProfile = () => {
       });
 
       navigate(`/profile/${res.user.accountname}`);
-    }
-  })
+    },
+  });
   return { updateProfileMutate };
-}
+};

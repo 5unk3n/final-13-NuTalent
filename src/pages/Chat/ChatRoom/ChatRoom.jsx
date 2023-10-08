@@ -15,11 +15,7 @@ export default function ChatRoom() {
   const userProfile = location.state.userImg;
   const chatContents = location.state.chatContents;
 
-  console.log(location.state);
-
   const handleImageChange = (e) => {
-    // console.log(e.target.files);
-    // setIsImageTyped(false);
     const imageTyped = e.target.files[0];
     if (imageTyped) {
       setIsImageTyped(true);
@@ -77,11 +73,7 @@ export default function ChatRoom() {
           placeholder="메시지 입력하기..."
           onChange={handleMessageChange}
         />
-        <S.SendButton
-          disabled={!isMessageTyped && !isImageTyped}
-          type="button"
-          // disabled
-        >
+        <S.SendButton disabled={!isMessageTyped && !isImageTyped} type="button">
           전송
         </S.SendButton>
       </S.ChatForm>

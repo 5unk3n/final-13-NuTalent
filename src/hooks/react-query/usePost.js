@@ -1,4 +1,3 @@
-// import { useMemo } from 'react';
 import {
   useQuery,
   useMutation,
@@ -98,7 +97,6 @@ export const useDeletePost = (accountname) => {
     mutationFn: (postId) => deletePost(postId),
     onSuccess: (_, postId) => {
       queryClient.setQueryData(['post', accountname, 'userpost'], (oldData) => {
-        console.log(oldData);
         const oldPages = oldData.pages;
         const newPages = oldPages.map((page) =>
           page.filter((post) => post.id !== postId),

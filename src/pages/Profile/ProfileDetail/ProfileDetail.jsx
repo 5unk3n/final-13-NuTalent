@@ -33,7 +33,6 @@ export default function Profile() {
     'userpost',
   );
   const { deletePostMutate } = useDeletePost(accountname);
-  console.log(posts);
 
   return (
     <>

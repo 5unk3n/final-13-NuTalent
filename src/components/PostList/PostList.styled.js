@@ -5,7 +5,6 @@ import listViewOff from '../../assets/img/icon-post-list-off.svg';
 import AlbumViewOn from '../../assets/img/icon-post-album-on.svg';
 import AlbumViewOff from '../../assets/img/icon-post-album-off.svg';
 
-// Post section
 export const PostSection = styled.section``;
 
 export const PostTop = styled.div`

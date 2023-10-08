@@ -42,8 +42,6 @@ export default function ProfileSetting() {
   const { JoinMemberMutate } = useJoinMember();
 
   const handleUserNameBlur = () => {
-    // 유효성 검사
-    // 사용자 이름 : 2~10자 이내여야합니다.
     if (userName.length < 2 || userName.length > 10) {
       setIsUserNameValid(false);
     } else {
@@ -52,7 +50,6 @@ export default function ProfileSetting() {
   };
 
   const handleUserIdBlur = async () => {
-    // 유효성 검사
     // 계정ID: 영문, 숫자, 특수문자(.), (_)만 사용가능합니다.
     if (!idRegExp.test(userAccountName) || !userAccountName) {
       setIsUserIdValid(false);
@@ -64,7 +61,6 @@ export default function ProfileSetting() {
       setIsUserIdValid(true);
     }
 
-    // 서버와 통신해서 계정 검증
     if (!idRegExp.test(userAccountName)) return;
     accountNameValidMutate(userAccountName);
 
@@ -73,10 +69,7 @@ export default function ProfileSetting() {
     } else return;
   };
 
-  // focus를 잃으면 실행
   const handleDescriptionBlur = () => {
-    // 유효성 검사
-    // 글이 비어있지 않으면 유효성검사 통과
     if (!intro) {
       setIsDescriptionValid(false);
     } else {

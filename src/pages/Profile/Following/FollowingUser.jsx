@@ -10,31 +10,6 @@ export default function FollowingUser({
   followHandler,
   myAccountName,
 }) {
-  // const [followingState, setFollowingState] = useState(
-  //   type === 'follow' ? true : false,
-  // );
-
-  /* User컴포넌트를 여러곳에서 쓰고 싶을 때 if문 사용 */
-  //   const button = () => {
-  //     if(type === 'follow') {
-  //       return (
-  //         <StyledBtn
-  //           size={'l'}
-  //           width={100}
-  //           color={type === 'follow' ? 'outline' : ''}
-  //           onClick={}
-  //           to={false}>
-  //         {type === 'follow' ? '취소' : '팔로우'}
-  //         </StyledBtn>
-  //       )
-  //     } else if(type === 'unfollow') {
-  //       return (
-  //        <StyledBtn />
-  //       )
-  //     }
-
-  //   }
-
   return (
     <S.FollowingUserStyled>
       <Link
