@@ -10,13 +10,11 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.4.0",
     "browser-image-compression": "^2.0.2",
-    "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.12.1",
     "react-scripts": "5.0.1",
     "recoil": "^0.7.7",
-    "recoil-persist": "^5.1.0",
     "styled-components": "^6.0.0-rc.3",
     "styled-reset": "^4.4.7",
     "web-vitals": "^2.1.4"
@@ -25,9 +23,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "craco eject",
-    "serve": "serve -s build",
-    "build-and-serve": "npm run build && npm run serve"
+    "eject": "craco eject"
   },
   "eslintConfig": {
     "extends": [
