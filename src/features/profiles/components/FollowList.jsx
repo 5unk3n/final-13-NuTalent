@@ -1,5 +1,6 @@
 import React from 'react';
 
+import FollowListSkeleton from './FollowListSkeleton';
 import User from './User';
 import { useGetFollowerList } from '../api/getFollowerList';
 import { useGetFollowingList } from '../api/getFollowingList';
@@ -19,7 +20,7 @@ export default function FollowList({ accountname, mode = 'follower' }) {
       ? useGetFollowerList(accountname)
       : useGetFollowingList(accountname);
 
-  if (isLoading) return;
+  if (isLoading) return <FollowListSkeleton />;
 
   return (
     <S.FollowList>

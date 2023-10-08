@@ -52,7 +52,12 @@ export const UserIntro = styled.p`
   color: ${({ theme }) => theme.color.gray[500]};
 `;
 
-export const DetailInfoWrapper = styled.div``;
+export const DetailInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 export const ButtonWrapper = styled.div`
   display: flex;
