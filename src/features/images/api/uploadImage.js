@@ -10,7 +10,9 @@ const uploadImage = async (imageFile) => {
   const formData = new FormData();
   formData.append('image', imageFile);
 
-  const res = await instance.post('/image/uploadfile', formData);
+  const res = await instance.post('/image/uploadfile', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  });
   const uploadedImage = `${res.config.baseURL}/${res.data.filename}`;
 
   return uploadedImage;

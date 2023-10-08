@@ -12,13 +12,8 @@ instance.interceptors.request.use((config) => {
   const user = userStorage.getUser();
   const token = user?.token;
 
-  if (config.url === '/image/uploadfile') {
-    config.headers['Content-Type'] = 'multipart/form-data';
-  } else {
-    if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`;
-    }
-    config.headers['Content-Type'] = 'application/json';
+  if (token) {
+    config.headers['Authorization'] = `Bearer ${token}`;
   }
 
   return config;
