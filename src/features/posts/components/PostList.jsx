@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import Post from './Post';
+import SkeletonPostList from './PostListSkeleton';
 import TagBar from './TagBar';
 import { useGetPostList } from '../api/getPostList';
 import useTag from '../hooks/useTag';
@@ -30,7 +31,7 @@ export default function PostList({
   const { tagList, selectTag, selectedTag, filterPostPages } = useTag();
   const filteredPostPages = filterPostPages(posts?.pages);
 
-  if (isLoading) return;
+  if (isLoading) return <SkeletonPostList />;
 
   return (
     <>
