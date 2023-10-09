@@ -3,20 +3,22 @@ import { Navigate } from 'react-router-dom';
 
 import BottomLayout from '@/components/Layout/BottomLayout/BottomLayout';
 import MainLayout from '@/components/Layout/MainLayout/MainLayout';
-import ChatPage from '@/features/chats/routes/ChatPage';
-import ChatRoomPage from '@/features/chats/routes/ChatRoomPage';
-import NotFoundPage from '@/features/misc/routes/NotFoundPage';
-import HomePage from '@/features/posts/routes/HomePage';
-import PostDetailPage from '@/features/posts/routes/PostDetailPage';
-import PostEditPage from '@/features/posts/routes/PostEditPage';
-import PostUploadPage from '@/features/posts/routes/PostUploadPage';
-import ProductEditPage from '@/features/products/routes/ProductEditPage';
-import ProductUploadPage from '@/features/products/routes/ProductUploadPage';
-import FollowerPage from '@/features/profiles/routes/FollowerPage';
-import FollowingPage from '@/features/profiles/routes/FollowingPage';
-import ProfileDetailPage from '@/features/profiles/routes/ProfileDetailPage';
-import ProfileEditPage from '@/features/profiles/routes/ProfileEditPage';
-import SearchPage from '@/features/searches/routes/SearchPage';
+import { ChatPage, ChatRoomPage } from '@/features/chats/routes';
+import { NotFoundPage } from '@/features/misc/routes';
+import {
+  HomePage,
+  PostDetailPage,
+  PostUploadPage,
+  PostEditPage,
+} from '@/features/posts/routes';
+import { ProductUploadPage, ProductEditPage } from '@/features/products/routes';
+import {
+  ProfileDetailPage,
+  ProfileEditPage,
+  FollowerPage,
+  FollowingPage,
+} from '@/features/profiles/routes';
+import { SearchPage } from '@/features/searches/routes';
 
 export const PrivateRoute = ({ user }) => {
   return user ? <MainLayout /> : <Navigate to="/signin" replace />;

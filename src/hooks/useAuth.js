@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom';
 
 import { useToast } from './useModal';
 
-import { signinWithData, signupWithData } from '@/features/auth';
 import { getMyInfo } from '@/features/auth/api/getMyInfo';
+import { signinWithData } from '@/features/auth/api/signin';
+import { signupWithData } from '@/features/auth/api/signup';
 import userStorage from '@/util/userStorage';
 
 export const USER_KEY = 'user';

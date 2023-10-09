@@ -4,9 +4,7 @@ import { useRoutes } from 'react-router-dom';
 import { PrivateRoute, privateRoutes } from './privateRoutes';
 import { PublicRoute, publicRoutes } from './publicRoutes';
 
-import IntroPage from '@/features/misc/routes/IntroPage';
-import NotFoundPage from '@/features/misc/routes/NotFoundPage';
-import SplashPage from '@/features/misc/routes/SplashPage';
+import { SplashPage, IntroPage, NotFoundPage } from '@/features/misc/routes';
 import useAuth from '@/hooks/useAuth';
 
 export default function Router() {
