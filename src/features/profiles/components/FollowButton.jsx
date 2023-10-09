@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useToggleFollow } from '../api/toggleFollow';
 
-import Button from '@/components/common/Button/Button';
+import Button from '@/components/Elements/Button/Button';
 
 export default function FollowButton({ user, size, ...props }) {
   const { mutate: toggleFollow } = useToggleFollow();

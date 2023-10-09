@@ -2,7 +2,7 @@ import React from 'react';
 
 import Profile from '../components/Profile';
 
-import HeaderBar from '@/components/Elements/HeaderBar';
+import HeaderBar from '@/components/Layout/MainLayout/HeaderBar';
 import PostList from '@/features/posts/components/PostList';
 import ProductList from '@/features/products/components/ProductList';
 

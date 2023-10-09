@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect, forwardRef } from 'react';
 import TagBar from './TagBar';
 import useTag from '../hooks/useTag';
 
-import CircleImage from '@/components/CircleImage';
+import CircleImage from '@/components/Elements/CircleImage/CircleImage';
 import { useUploadImage } from '@/features/images/api/uploadImage';
 import ImageUploader from '@/features/images/components/ImageUploader';
 import useAuth from '@/hooks/useAuth';

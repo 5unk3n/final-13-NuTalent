@@ -2,7 +2,7 @@ import React from 'react';
 
 import ChatRoomList from '../components/ChatRoomList';
 
-import HeaderBar from '@/components/Elements/HeaderBar';
+import HeaderBar from '@/components/Layout/MainLayout/HeaderBar';
 
 export default function ChatPage() {
   const dummyChatList = [

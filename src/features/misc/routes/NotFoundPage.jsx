@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import errorImg from '@/assets/img/404.svg';
-import Button from '@/components/common/Button/Button';
+import Button from '@/components/Elements/Button/Button';
 
 import * as S from './NotFoundPage.styled';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 
-import BottomNav from '../Elements/BottomNav';
+import BottomNav from './BottomNav';
 
 import ChatUploader from '@/features/chats/components/ChatUploader';
 import CommentUploader from '@/features/comments/components/CommentUploader';

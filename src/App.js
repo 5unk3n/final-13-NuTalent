@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Alert from './components/Modal/Alert';
 import BottomSheet from './components/Modal/BottomSheet';
-import Toast from './components/Toast/Toast';
+import Toast from './components/Modal/Toast';
 import { useAlert, useBottomSheet, useToast } from './hooks/useModal';
 import queryClient from './libs/react-query';
 import Router from './routes/Router';

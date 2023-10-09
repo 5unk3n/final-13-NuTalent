@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import CircleImage from '../CircleImage';
+import CircleImage from '@/components/Elements/CircleImage/CircleImage';
 
 import * as S from './BottomInputForm.styled';
 

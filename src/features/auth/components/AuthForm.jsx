@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { useCheckDuplicateEmail } from '../api/checkDuplicateEmail';
 
-import Button from '@/components/common/Button/Button';
-import TextInput from '@/components/TextInput';
+import Button from '@/components/Elements/Button/Button';
+import TextInput from '@/components/Elements/TextInput/TextInput';
 import useAuth from '@/hooks/useAuth';
 import {
   validateEmail,

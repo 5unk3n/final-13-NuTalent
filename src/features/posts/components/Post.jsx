@@ -4,7 +4,7 @@ import { useDeletePost } from '../api/deletePost';
 import { useReportPost } from '../api/reportPost';
 import useTag from '../hooks/useTag';
 
-import Carousel from '@/components/common/Carousel/Carousel';
+import Carousel from '@/components/Elements/Carousel/Carousel';
 import { useToggleHeart } from '@/features/hearts/api/toggleHeart';
 import User from '@/features/profiles/components/User';
 import useAuth from '@/hooks/useAuth';

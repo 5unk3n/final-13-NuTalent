@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import FollowList from '../components/FollowList';
 
-import HeaderBar from '@/components/Elements/HeaderBar';
+import HeaderBar from '@/components/Layout/MainLayout/HeaderBar';
 
 export default function FollowerPage() {
   const { accountname } = useParams();

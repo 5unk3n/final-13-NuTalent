@@ -2,7 +2,7 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 
 import useCloseAfterTransition from '../../hooks/useCloseAfterTransition';
-import Transition from '../common/Transition/Transition';
+import Transition from '../Elements/Transition/Transition';
 
 import * as S from './Toast.styled';
 

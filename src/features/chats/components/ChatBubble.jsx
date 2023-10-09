@@ -1,6 +1,6 @@
 import React from 'react';
 
-import CircleImage from '@/components/CircleImage';
+import CircleImage from '@/components/Elements/CircleImage/CircleImage';
 
 import * as S from './ChatBubble.styled';
 

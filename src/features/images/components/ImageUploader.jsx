@@ -1,7 +1,7 @@
 import React from 'react';
 
 import uploadIcon from '@/assets/img/upload-file.svg';
-import CircleImage from '@/components/CircleImage';
+import CircleImage from '@/components/Elements/CircleImage/CircleImage';
 
 import * as S from './ImageUploader.styled';
 

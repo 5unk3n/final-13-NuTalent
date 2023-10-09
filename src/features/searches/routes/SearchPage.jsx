@@ -4,7 +4,7 @@ import React from 'react';
 import { useSearchUser } from '../api/searchUser';
 import UserList from '../components/UserList';
 
-import HeaderBar from '@/components/Elements/HeaderBar';
+import HeaderBar from '@/components/Layout/MainLayout/HeaderBar';
 import useDebounce from '@/hooks/useDebounce';
 
 export default function SearchPage() {

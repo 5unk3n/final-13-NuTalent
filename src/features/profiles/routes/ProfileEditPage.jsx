@@ -2,8 +2,8 @@ import React, { useRef } from 'react';
 
 import { useUpdateProfile } from '../api/updateProfile';
 
-import Button from '@/components/common/Button/Button';
-import HeaderBar from '@/components/Elements/HeaderBar';
+import Button from '@/components/Elements/Button/Button';
+import HeaderBar from '@/components/Layout/MainLayout/HeaderBar';
 import ProfileInfoForm from '@/features/auth/components/ProfileInfoForm';
 import useAuth from '@/hooks/useAuth';
 

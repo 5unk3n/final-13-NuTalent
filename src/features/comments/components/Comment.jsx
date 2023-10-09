@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useDeleteComment } from '../api/deleteComment';
 import { useReportComment } from '../api/reportComment';
 
-import CircleImage from '@/components/CircleImage';
+import CircleImage from '@/components/Elements/CircleImage/CircleImage';
 import useAuth from '@/hooks/useAuth';
 import { useAlert, useBottomSheet } from '@/hooks/useModal';
 import { getTimeAgoFromNow } from '@/util/format/formatDate';

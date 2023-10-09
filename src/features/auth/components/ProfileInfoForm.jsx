@@ -2,9 +2,9 @@ import React, { forwardRef, useEffect, useState } from 'react';
 
 import { useCheckDuplicateAccountname } from '../api/checkDuplicateAccountname';
 
-import CircleImage from '@/components/CircleImage';
-import Button from '@/components/common/Button/Button';
-import TextInput from '@/components/TextInput';
+import Button from '@/components/Elements/Button/Button';
+import CircleImage from '@/components/Elements/CircleImage/CircleImage';
+import TextInput from '@/components/Elements/TextInput/TextInput';
 import { useUploadImage } from '@/features/images/api/uploadImage';
 import ImageUploader from '@/features/images/components/ImageUploader';
 import {

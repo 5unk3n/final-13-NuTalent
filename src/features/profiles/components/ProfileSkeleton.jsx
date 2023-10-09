@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Skeleton from '@/components/Skeleton/Skeleton';
+import Skeleton from '@/components/Elements/Skeleton/Skeleton';
 
 import * as S from './Profile.styled';
 

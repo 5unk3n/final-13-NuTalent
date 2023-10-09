@@ -1,6 +1,6 @@
 import React, { useState, forwardRef, useEffect } from 'react';
 
-import TextInput from '@/components/TextInput';
+import TextInput from '@/components/Elements/TextInput/TextInput';
 import { useUploadImage } from '@/features/images/api/uploadImage';
 import ImageUploader from '@/features/images/components/ImageUploader';
 import { addCommasToNumber } from '@/util/format/formatPrice';
