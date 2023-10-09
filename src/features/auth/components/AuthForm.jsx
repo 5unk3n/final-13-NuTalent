@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 import { useCheckDuplicateEmail } from '../api/checkDuplicateEmail';
 
 import Button from '@/components/Elements/Button/Button';
 import TextInput from '@/components/Elements/TextInput/TextInput';
-import useAuth from '@/hooks/useAuth';
 import {
   validateEmail,
   validatePassword,
@@ -13,31 +11,27 @@ import {
 
 import * as S from './AuthForm.styled';
 
-export default function SignupForm({ formType }) {
+export default function AuthForm({
+  onSubmit,
+  buttonText,
+  isCheckValid = false,
+}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const submitButtonDisabled =
-    formType === 'signin'
-      ? !email || !password
-      : emailError || passwordError || !email || !password;
+    emailError || passwordError || !email || !password;
 
-  const navigate = useNavigate();
   const { mutateAsync: checkEmailMutate } = useCheckDuplicateEmail();
-  const { signin } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formType === 'signin') {
-      signin({ email, password });
-    } else if (formType === 'signup') {
-      navigate('/signup/profile', { state: { email, password } });
-    }
+    onSubmit({ email, password });
   };
 
   const handleEmailBlur = async () => {
-    if (formType === 'signin') return;
+    if (!isCheckValid) return;
 
     if (validateEmail(email)) {
       const { message } = await checkEmailMutate(email);
@@ -52,7 +46,7 @@ export default function SignupForm({ formType }) {
   };
 
   const handlePasswordBlur = () => {
-    if (formType === 'signin') return;
+    if (!isCheckValid) return;
 
     if (validatePassword(password)) {
       setPasswordError('');
@@ -85,9 +79,7 @@ export default function SignupForm({ formType }) {
           />
         </TextInput>
       </S.InputWrapper>
-      <Button disabled={submitButtonDisabled}>
-        {formType === 'signin' ? '로그인' : '다음'}
-      </Button>
+      <Button disabled={submitButtonDisabled}>{buttonText}</Button>
     </form>
   );
 }

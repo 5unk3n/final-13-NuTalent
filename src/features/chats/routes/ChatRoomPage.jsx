@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import ChatRoomDetail from '../components/ChatRoomDetail';
 
 import HeaderBar from '@/components/Layout/MainLayout/HeaderBar';
 import useAuth from '@/hooks/useAuth';
+import { useToast } from '@/hooks/useModal';
 
 import * as S from './ChatRoomPage.styled';
 
@@ -12,6 +13,16 @@ export default function ChatRoomPage() {
   const { user } = useAuth();
 
   const { accountname } = useParams();
+
+  const { openToast } = useToast();
+
+  useEffect(() => {
+    openToast({
+      message: '현재 채팅 기능은 지원되지 않습니다.',
+      status: 'error',
+      duration: 5000,
+    });
+  }, []);
 
   const dummyChatData = [
     {

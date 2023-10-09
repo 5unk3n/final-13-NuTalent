@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import ChatRoomList from '../components/ChatRoomList';
 
 import HeaderBar from '@/components/Layout/MainLayout/HeaderBar';
+import { useToast } from '@/hooks/useModal';
 
 export default function ChatPage() {
+  const { openToast } = useToast();
+
+  useEffect(() => {
+    openToast({
+      message: '현재 채팅 기능은 지원되지 않습니다.',
+      status: 'error',
+      duration: 5000,
+    });
+  }, []);
+
   const dummyChatList = [
     {
       user: {
@@ -47,6 +58,7 @@ export default function ChatPage() {
       isRead: true,
     },
   ];
+
   return (
     <div>
       <HeaderBar>

@@ -51,3 +51,13 @@ export const AlbumImg = styled.img`
   width: 100%;
   aspect-ratio: 1/1;
 `;
+
+// no post
+export const NoPost = styled.div`
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+`;
