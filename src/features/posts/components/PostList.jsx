@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import Post from './Post';
 import SkeletonPostList from './PostListSkeleton';
@@ -66,7 +66,9 @@ export default function PostList({
             ) : (
               post.image && (
                 <li key={post.id}>
-                  <S.AlbumImg src={post.image} alt="" />
+                  <Link to={`/post/${post.id}`}>
+                    <S.AlbumImg src={post.image} alt="" />
+                  </Link>
                 </li>
               )
             );
