@@ -17,13 +17,17 @@ export default function ProductList() {
   return (
     <S.ProductListWrapper>
       <S.ProductHeading>판매 중인 상품</S.ProductHeading>
-      <S.ProductList>
-        {productList.map((product) => (
-          <li key={product.id}>
-            <Product product={product} />
-          </li>
-        ))}
-      </S.ProductList>
+      {productList.length === 0 ? (
+        <p>현재 판매 중인 상품이 없습니다.</p>
+      ) : (
+        <S.ProductList>
+          {productList.map((product) => (
+            <li key={product.id}>
+              <Product product={product} />
+            </li>
+          ))}
+        </S.ProductList>
+      )}
     </S.ProductListWrapper>
   );
 }

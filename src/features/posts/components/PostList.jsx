@@ -7,6 +7,7 @@ import TagBar from './TagBar';
 import { useGetPostList } from '../api/getPostList';
 import useTag from '../hooks/useTag';
 
+import Button from '@/components/Elements/Button/Button';
 import useIntersectionObserver from '@/hooks/useIntersectionObserver';
 
 import * as S from './PostList.styled';
@@ -19,7 +20,7 @@ export default function PostList({
   const [viewType, setViewType] = useState('list');
   const { accountname } = useParams();
   const {
-    data: posts,
+    data: postList,
     isLoading,
     fetchNextPage,
   } = useGetPostList(accountname, postType);
@@ -29,9 +30,22 @@ export default function PostList({
     }
   });
   const { tagList, selectTag, selectedTag, filterPostPages } = useTag();
-  const filteredPostPages = filterPostPages(posts?.pages);
+  const filteredPostPages = filterPostPages(postList?.pages);
 
   if (isLoading) return <SkeletonPostList />;
+
+  if (postList.pages[0].length === 0) {
+    return (
+      <S.NoPost>
+        <p>게시물이 없습니다!</p>
+        {postType === 'feed' && (
+          <Button to="/search" size="l" width="20rem">
+            팔로우 하러가기
+          </Button>
+        )}
+      </S.NoPost>
+    );
+  }
 
   return (
     <>
