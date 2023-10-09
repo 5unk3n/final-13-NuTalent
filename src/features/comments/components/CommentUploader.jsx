@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { useCreateComment } from '../api/createComment';
 
-import BottomInputForm from '@/components/Elements/BottomInputForm';
+import BottomInputForm from '@/components/Layout/BottomLayout/BottomInputForm';
 import useAuth from '@/hooks/useAuth';
 
 export default function CommentUploader() {

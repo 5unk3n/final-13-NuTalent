@@ -1,7 +1,7 @@
 import React from 'react';
 
 import imgUploadIcon from '@/assets/img/img-button.svg';
-import BottomInputForm from '@/components/Elements/BottomInputForm';
+import BottomInputForm from '@/components/Layout/BottomLayout/BottomInputForm';
 
 export default function ChatUploader() {
   const handleSubmit = () => {

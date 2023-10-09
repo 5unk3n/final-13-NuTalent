@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import ChatRoomDetail from '../components/ChatRoomDetail';
 
-import HeaderBar from '@/components/Elements/HeaderBar';
+import HeaderBar from '@/components/Layout/MainLayout/HeaderBar';
 import useAuth from '@/hooks/useAuth';
 
 import * as S from './ChatRoomPage.styled';

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 
-import BottomLayout from '@/components/Layout/BottomLayout';
-import MainLayout from '@/components/Layout/MainLayout';
+import BottomLayout from '@/components/Layout/BottomLayout/BottomLayout';
+import MainLayout from '@/components/Layout/MainLayout/MainLayout';
 import ChatPage from '@/features/chats/routes/ChatPage';
 import ChatRoomPage from '@/features/chats/routes/ChatRoomPage';
 import NotFoundPage from '@/features/misc/routes/NotFoundPage';

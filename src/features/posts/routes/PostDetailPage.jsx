@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useGetPost } from '../api/getPost';
 import Post from '../components/Post';
 
-import HeaderBar from '@/components/Elements/HeaderBar';
+import HeaderBar from '@/components/Layout/MainLayout/HeaderBar';
 import CommentList from '@/features/comments/components/CommentList';
 
 import * as S from './PostDetailPage.styled';

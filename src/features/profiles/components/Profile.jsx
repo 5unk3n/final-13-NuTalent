@@ -5,8 +5,8 @@ import FollowButton from './FollowButton';
 import ProfileSkeleton from './ProfileSkeleton';
 import { useGetProfile } from '../api/getProfile';
 
-import CircleImage from '@/components/CircleImage';
-import Button from '@/components/common/Button/Button';
+import Button from '@/components/Elements/Button/Button';
+import CircleImage from '@/components/Elements/CircleImage/CircleImage';
 import useAuth from '@/hooks/useAuth';
 import shareURL from '@/util/shareURL';
 

@@ -3,8 +3,8 @@ import React, { useRef } from 'react';
 import { useCreateProduct } from '../api/createProduct';
 import ProductEditor from '../components/ProductEditor';
 
-import Button from '@/components/common/Button/Button';
-import HeaderBar from '@/components/Elements/HeaderBar';
+import Button from '@/components/Elements/Button/Button';
+import HeaderBar from '@/components/Layout/MainLayout/HeaderBar';
 
 // TODO: 입력 없이 제출할 때 피드백 추가하기
 export default function ProductUploadPage() {

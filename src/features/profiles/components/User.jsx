@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import CircleImage from '@/components/CircleImage';
+import CircleImage from '@/components/Elements/CircleImage/CircleImage';
 import FollowButton from '@/features/profiles/components/FollowButton';
 
 import * as S from './User.styled';

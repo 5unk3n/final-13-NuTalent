@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Skeleton from '@/components/Skeleton/Skeleton';
+import Skeleton from '@/components/Elements/Skeleton/Skeleton';
 import UserSkeleton from '@/features/profiles/components/UserSkeleton';
 
 import * as S from './Post.styled';
