@@ -37,8 +37,6 @@ const ProfileInfoForm = forwardRef(function ProfileInfoForm(
   const handleSubmit = (e) => {
     e.preventDefault();
     const userData = {
-      email: initData?.email,
-      password: initData?.password,
       image: image || DEFAULT_PROFILE_IMG_URL,
       username,
       accountname,
