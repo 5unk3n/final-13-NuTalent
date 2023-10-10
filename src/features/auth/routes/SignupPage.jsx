@@ -23,11 +23,7 @@ export default function SignupPage() {
   return (
     <>
       {step === '로그인정보' && (
-        <AuthForm
-          onSubmit={goToProfileInfo}
-          buttonText="다음"
-          isCheckValid="ture"
-        />
+        <AuthForm onSubmit={goToProfileInfo} buttonText="다음" isCheckValid />
       )}
       {step === '프로필정보' && (
         <ProfileInfoForm
