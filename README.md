@@ -2,8 +2,8 @@
 
 <img src="https://github.com/FRONTENDSCHOOL5/final-13-NuTalent/assets/126536402/d6058d52-09ec-4b56-8968-03731d099fa2">
 
-> 📎 배포 URL : https://nutalent.netlify.app/ <br/>
-> 🔓 계정 : `ip@time.com` | `test123` <br/>
+> 📎 배포 URL : https://nu-talent.vercel.app <br/>
+> 🔓 계정 : `admin@nutalent.com` | `123123` <br/>
 
 **"꺼내봐 너의 부캐"**
 
@@ -66,9 +66,6 @@ _(🦁멋쟁이사자처럼 프론트엔드스쿨 5기 프로젝트 13팀)_
   - TextActiveInput
   - Top
 
-<p align="right"><a href="#top">(🔼 Top)</a></p>
-<br>
-
 ## ✨ 개발 환경
 
 ### 🛠 기술 스택
@@ -90,14 +87,12 @@ _(🦁멋쟁이사자처럼 프론트엔드스쿨 5기 프로젝트 13팀)_
 
 ### 🛠 Node Modules
 
-| 모듈명           | 도입계기                                                                  |
-| ---------------- | ------------------------------------------------------------------------- |
-| recoil           | 전역 상태 관리를 위해 사용                                                |
-| axios            | 서버와 통신을 위해 사용                                                   |
-| react-router-dom | 페이지 라우팅을 위해 사용                                                 |
-| styled-reset     | 스타일 구현의 편의를 위해 사용                                            |
-| lodash           | 검색 페이지에서 함수의 호출을 일정시간 지연하는 debounce 구현을 위해 사용 |
-| moment           | Date 스타일을 변경하여 가독성을 높이기 위해 사용                          |
+| 모듈명           | 도입계기                       |
+| ---------------- | ------------------------------ |
+| recoil           | 전역 상태 관리를 위해 사용     |
+| axios            | 서버와 통신을 위해 사용        |
+| react-router-dom | 페이지 라우팅을 위해 사용      |
+| styled-reset     | 스타일 구현의 편의를 위해 사용 |
 
 <br>
 
@@ -116,7 +111,7 @@ _(🦁멋쟁이사자처럼 프론트엔드스쿨 5기 프로젝트 13팀)_
 ### 🔧 협업 방식
 
 - Git-Flow 사용 <br/>
-  Git-Flow을 본 목적대로 사용하기 위해서는 main, hotfix, release, develop, feature 브랜치를 사용해야 하지만, <br>3주라는 **짧은 개발 일정**상 **feature, develop, main 브랜치만 우선적으로 사용**하였습니다.<br> 개발 기간 이후 hotfix, release 브랜치를 적극적으로 사용하여 시맨틱한 버전관리를 진행할 예정입니다.
+  Git-Flow을 본 목적대로 사용하기 위해서는 main, hotfix, release, develop, feature 브랜치를 사용해야 하지만, <br>3주라는 **짧은 개발 일정**상 **feature, develop, main 브랜치만 우선적으로 사용**하였습니다.
 
 - 컨벤션 소개 <br/>
 
@@ -151,8 +146,6 @@ _(🦁멋쟁이사자처럼 프론트엔드스쿨 5기 프로젝트 13팀)_
 
 <br>
 
-<p align="right"><a href="#top">(🔼 Top)</a></p>
-
 ## ✨ 프로젝트 소개
 
 ### 🗓 개발 기간
@@ -166,8 +159,6 @@ _(🦁멋쟁이사자처럼 프론트엔드스쿨 5기 프로젝트 13팀)_
 | **5주차** : (6/25~6/29)   | - 기능 테스트 및 오류 해결<br>- 리팩토링<br>- README 작성                                   |
 
 </div markdown="1">
-
-  <p align="right"><a href="#top">(🔼 Top)</a></p>
 
 ### 🎨 디자인
 
@@ -214,279 +205,43 @@ _(🦁멋쟁이사자처럼 프론트엔드스쿨 5기 프로젝트 13팀)_
   | :------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
   | <img src= "https://github.com/FRONTENDSCHOOL5/final-13-NuTalent/assets/126536402/0aeced98-40f3-4ed8-8d9e-d5a2dfb9f49d" height=462 width=220> | <img src="https://github.com/FRONTENDSCHOOL5/final-13-NuTalent/assets/126536402/5df7f01b-41f2-49f9-9a53-109904e62d55" height=462 width=220> | <img src="https://github.com/FRONTENDSCHOOL5/final-13-NuTalent/assets/126536402/20912f57-70b7-47d3-b985-a2c8cb565cb0" height=462 width=220> |
 
-<details>
-<summary>React Portal</summary>
-
-모달이 리액트 앱의 DOM 트리에서 렌더링이 되면 부모 요소의 css 상속을 받아 원하는 위치에 렌더링하기 힘들지만 포탈을 사용하면 DOM 트리에서 벗어나 스타일링이 더 쉬워지고 z-index 관련 문제를 쉽게 해결할 수 있습니다.
-
-```js
-import React, { useEffect } from 'react';
-import { createPortal } from 'react-dom';
-import * as S from './Alert.styled';
-
-export default function Alert({ isOpen, title, cancel, action, actionText }) {
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  }, [isOpen]);
-
-  return (
-    isOpen &&
-    createPortal(
-      <S.Overlay>
-        <S.Alert isOpen={isOpen}>
-          <p>{title}</p>
-          <div>
-            <button type="button" onClick={cancel}>
-              취소
-            </button>
-            <button type="button" onClick={action}>
-              {actionText}
-            </button>
-          </div>
-        </S.Alert>
-      </S.Overlay>,
-      document.body,
-    )
-  );
-}
-```
-
-<div markdown="1">
-</details>
-
-<details>
-<summary>Private Route</summary>
-
-## PrivateRoute
-
-PrivateRoutes 컴포넌트 내에서 Recoil로 사용자 정보를 받아와 로그인이 되어 있는지 확인합니다.
-
-사용자의 정보가 없다면 로그인 페이지로 이동하게되고 사용자의 정보가 있다면 Outlet을 통해 PrivatesRoute 컴포넌트 안의 Route로 이동하게 됩니다.
-
-```js
-
-// PrivateRoute.jsx
-
-import React from 'react';
-import { Outlet, Navigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
-
-import { recoilData } from '../recoil/atoms/dataState';
-
-export default function PrivateRoutes() {
-  const userData = useRecoilValue(recoilData);
-  const isLoggedIn = userData.length !== 0;
-
-  return isLoggedIn ? <Outlet /> : <Navigate to="/login" />;
-}
-
-// Router.jsx
-
-export default function Router() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Splash />} />
-        <Route path="/intro" element={<Intro />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signUp">
-          <Route index element={<SignUp />} />
-          <Route path="profile" element={<ProfileSetting />} />
-        </Route>
-        <Route element={<PrivateRoutes />}>
-          <Route path="/home" element={<Home />} />
-          <Route path="/search" element={<Search />} />
-          <Route path="/chatlist" element={<ChatList />} />
-          <Route path="/chatlist/:accountname" element={<ChatRoom />} />
-          <Route path="/post">
-            <Route path=":id" element={<PostDetail />} />
-            <Route path="upload" element={<PostUpload />} />
-            <Route path="edit/:id" element={<PostEdit />} />
-          </Route>
-          <Route path="productupload" element={<ProductUpload />} />
-          <Route path="product/edit/:id" element={<ProductEdit />} />
-          <Route path="/follower" element={<Follower />} />
-          <Route path="/following" element={<Following />} />
-          <Route path="/profile">
-            <Route path=":accountname" element={<Profile />} />
-            <Route path="edit" element={<ProfileEdit />} />
-          </Route>
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
+## 폴더 구조
 
 ```
-
-<div markdown="1">
-</details>
-
-<details>
-<summary>📂 폴더 구조</summary>
-
+src
+ ┣ assets
+ ┃ ┗ img  // 이미지 파일
+ ┣ components // 공통 컴포넌트
+ ┃ ┣ Elements // 재사용 가능한 기본적인 UI요소를 포함한 컴포넌트
+ ┃ ┣ Layout // 레이아웃 관련 컴포넌트
+ ┃ ┗ Modal  // 모달 창과 관련된 컴포넌트
+ ┣ features // 앱의 기능 구현 모듈
+ ┃ ┣ [기능 이름]
+ ┃ ┃ ┣ api  // API함수 및 리액트 쿼리 훅
+ ┃ ┃ ┣ components // 기능과 관련된 컴포넌트
+ ┃ ┃ ┣ hooks  // 기능과 관련된 커스텀 훅
+ ┃ ┃ ┗ routes // 해당 기능의 페이지
+ ┃ ┗ ...
+ ┣ hooks  // 전역적으로 사용할 수 있는 커스텀 훅
+ ┣ libs // 라이브러리 관련 코드
+ ┣ recoil/atom // recoil의 전역 상태 코드
+ ┣ routes // 라우팅 설정 파일
+ ┣ styles // 전역 스타일 및 Theme
+ ┣ util // 유틸리티 함수
+ ┃ ┣ format // 포맷팅과 관련된 유틸리티 함수
+ ┃ ┗ validation // 유효성 검증 관련 유틸리티 함수
+ ┣ App.js
+ ┗ index.js
 ```
 
-📁 NuTalent
-├── 📁 .github
-├── 📁 node_modules
-├── 📁 public
-├── 📁 src
-│ ├── 📁 assets
-│ │ └── 📁 image
-│ ├── 📁 components
-│ │ ├── 📁 common
-│ │ │ ├── 📁 Alert
-│ │ │ ├── 📁 BottomSheetModal
-│ │ │ ├── 📁 Button
-│ │ │ ├── 📁 PostItem
-│ │ │ ├── 📁 ProductItem
-│ │ │ ├── 📁 TabMenu
-│ │ │ ├── 📁 TextActiveInput
-│ │ │ ├── 📁 Top
-│ │ │ └── 📁 User
-│ ├── 📁 hooks
-│ ├── 📁 pages
-│ │ ├── 📁 Auth
-│ │ │ ├── 📁 Intro
-│ │ │ ├── 📁 Login
-│ │ │ ├── 📁 ProfileSetting
-│ │ │ └── 📁 SignUp
-│ │ ├── 📁 Chat
-│ │ │ ├── 📁 ChatList
-│ │ │ └── 📁 ChatRoom
-│ │ ├── 📁 Home
-│ │ ├── 📁 NotFound
-│ │ ├── 📁 Post
-│ │ │ ├── 📁 PostDetail
-│ │ │ ├── 📁 PostEdit
-│ │ │ └── 📁 PostUpload
-│ │ ├── 📁 Product
-│ │ │ ├── 📁 ProductEdit
-│ │ │ └── 📁 ProductUpload
-│ │ ├── 📁 Profile
-│ │ │ ├── 📁 Follwer
-│ │ │ ├── 📁 Following
-│ │ │ ├── 📁 ProfileDetail
-│ │ │ └── 📁 ProfileEdit
-│ │ ├── 📁 Search
-│ │ └── 📁 Splash
-│ ├── 📁 recoil
-│ │ ├── 📁 atoms
-│ │ ├── 📁 effects
-│ │ └── 📁 selectors
-│ ├── 📁 routes
-│ ├── 📁 styles
-│ ├── 📁 util
-└── 📁 api
-│ ├── App.js
-│ └── index.js
-├── .eslintignore
-├── .eslintrc
-├── .git
-├── .gitignore
-├── .prettierignore
-├── .prettierrc
-├── package.json
-├── README.md
-├── README.md
-└── yarn.lock
+## 리팩토링 과정 정리 위키
 
-```
-
-<div markdown="1">
-</details>
-
-<p align="right"><a href="#top">(🔼 Top)</a></p>
-
-## ✨ 트러블 슈팅
-
-<br>
-<details>
-<summary>💡 유저 검색 시 오류 발생</summary>
-
-### - 유저 검색 시 오류발생
-
-검색 api를 요청해서 검색 결과를 받아오는데 콘솔창에 계속 다음과 같은 에러가 찍혀나왔습니다.
-<img src="https://raw.githubusercontent.com/cho7778/sample/main/%E1%84%90%E1%85%B3%E1%84%85%E1%85%A5%E1%84%87%E1%85%B3%E1%86%AF%E1%84%89%E1%85%B2%E1%84%90%E1%85%B5%E1%86%BC1.png"/>
-
-net::ERR_CERT_COMMON_NAME_INVALID 문제를 검색해보니 서버 관련 이슈였지만, 서버에 대한 지식이 전혀 없는 입장이라 프론트 입장에서 일어난 문제일 것이라고 생각하여 블로그 글들을 하나하나 찾아보았습니다. 그들이 해결했던 방법 하나하나 실행을 해보았는데, 정리해보니 다음과 같았습니다.
-
-1. 네트워크 설정 초기화 및 모뎀/공유기 재부팅
-2. 인터넷 기록 삭제
-3. 이미지를 받아오는 주소가 http인지, https인지 확인
-4. 크롬에서 자주 일어나는 문제로 보여 크롬이 아닌 사파리에서 실행을 시켜보았지만, 사파리에서도 콘솔 창에서 인증서 관련 이슈로 나왔습니다. <br>
-   <img src="https://raw.githubusercontent.com/cho7778/sample/main/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202023-06-29%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%207.59.00.png"/>
-
-그 외에도 에러가 무한으로 계속 추가되는 문제, 받아오지 못한 이미지가 깨져 나오는 문제도 함께 있었다
-
-결국은 어딘가 꼬여있는 것 같다는 생각에, 멘토님께 도움을 요청했습니다. 멘토님께 나온 답변은 다음과 같았습니다.
-
-1. 백엔드에 정확하지 못한 양식으로 저장된 데이터가 많다.
-2. 서버를 한번 바꾼 적이 있어 그 전에 저장된 데이터를 불러오는데 문제가 있다.
-3. useEffect의 사용
-
-=> 그래서 정리한 코드는 다음과 같습니다.
-<br>
-
-```js
-const [keywordForSearchUser, setKeywordToSearchUser] = useState('');
-const [data, setData] = useState([]);
-
-const token = useRecoilValue(recoilData).token;
-
-const sendQuery = async () => {
-  if (!keywordForSearchUser) return;
-  const res = await instance.get(
-    `/user/searchuser/?keyword=${keywordForSearchUser}`,
-    {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-type': 'application/json',
-      },
-    },
-  );
-  setData(res.data);
-};
-
-const delayedSearch = useCallback(debounce(() => sendQuery(), 500));
-
-const handleSearchUserChange = (e) => {
-  setKeywordToSearchUser(e.target.value);
-  delayedSearch();
-};
-
-const handleImageError = (e) => {
-  e.target.src = defaultProfileImage;
-};
-
-useEffect(() => {
-  sendQuery();
-}, [keywordForSearchUser]);
-```
-
-1. useEffect()를 통해 api통신을 하는 sendQuery 호출을 조절한다.
-2. onError처리를 통해 깨져나오던 이미지를 기본 프로필 이미지로 대체한다.
-3. 키워드가 없을 경우에는 api 호출을 하지 않는다.
-
-<div markdown="1">
-
-</details>
-
-<br>
-
-## ✨ 리팩토링 예정 목록
-
-- 코드 스타일 통일
-- 재사용성 높이기
-- 리액트 쿼리 도입
-- 이미지 최적화
-- 접근성 개선
-- 로딩 페이지(스피너 or 스켈레톤)
+- [리팩토링을 하게 된 이유?](https://github.com/5unk3n/final-13-NuTalent/wiki)
+- [React Query로 인증 관리 변경](https://github.com/5unk3n/final-13-NuTalent/wiki/React-Query%EB%A1%9C-%EC%9D%B8%EC%A6%9D-%EA%B4%80%EB%A6%AC-%EB%B3%80%EA%B2%BD)
+- [관심사 분리와 컨벤션 준수로 가독성 향상](https://github.com/5unk3n/final-13-NuTalent/wiki/%EA%B4%80%EC%8B%AC%EC%82%AC-%EB%B6%84%EB%A6%AC%EC%99%80-%EC%BB%A8%EB%B2%A4%EC%85%98-%EC%A4%80%EC%88%98%EB%A1%9C-%EA%B0%80%EB%8F%85%EC%84%B1-%ED%96%A5%EC%83%81)
+- [레이아웃으로 중복 코드 제거](https://github.com/5unk3n/final-13-NuTalent/wiki/%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83%EC%9C%BC%EB%A1%9C-%EC%A4%91%EB%B3%B5-%EC%BD%94%EB%93%9C-%EC%A0%9C%EA%B1%B0)
+- [복잡한 컴포넌트나 훅에 JSDoc 추가](https://github.com/5unk3n/final-13-NuTalent/wiki/%EB%B3%B5%EC%9E%A1%ED%95%9C-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EB%82%98-%ED%9B%85%EC%97%90-JSDoc-%EC%B6%94%EA%B0%80)
+- [회원가입 페이지 funnel 적용](https://github.com/5unk3n/final-13-NuTalent/wiki/%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85-%ED%8E%98%EC%9D%B4%EC%A7%80-funnel-%EC%A0%81%EC%9A%A9)
+- [디렉토리 구조 변경](https://github.com/5unk3n/final-13-NuTalent/wiki/%EB%94%94%EB%A0%89%ED%86%A0%EB%A6%AC-%EA%B5%AC%EC%A1%B0-%EB%B3%80%EA%B2%BD)
 
 <p align="right"><a href="#top">(🔼 Top)</a></p>

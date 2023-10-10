@@ -11,7 +11,7 @@ export const Image = styled.img`
   width: 100%;
   aspect-ratio: 4/3;
   object-fit: contain;
-  background-color: rgb(245, 245, 245);
+  background-color: ${({ theme }) => theme.color.gray[100]};
   border-radius: 1rem;
 `;
 
@@ -25,7 +25,7 @@ export const SlideButton = styled.button`
   color: transparent;
 
   &:hover {
-    color: var(--main-purple);
+    color: ${({ theme }) => theme.color.purpleDark};
     transition: 0.2s color;
   }
 
@@ -50,8 +50,8 @@ export const CarouselIndicator = styled.div`
 export const CarouselIndicatorItem = styled.span`
   width: 1rem;
   height: 1rem;
-  border: 0.1rem solid var(--sub-grey);
+  border: 0.1rem solid ${({ theme }) => theme.color.gray[400]};
   border-radius: 50%;
-  background-color: ${({ $currentImage }) =>
-    $currentImage ? 'var(--main-purple)' : 'white'};
+  background-color: ${({ theme, $currentImage }) =>
+    $currentImage ? theme.color.purpleDark : theme.color.white};
 `;
