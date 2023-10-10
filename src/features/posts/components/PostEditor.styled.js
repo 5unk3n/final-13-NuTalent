@@ -21,6 +21,10 @@ export const Textarea = styled.textarea`
   &::placeholder {
     color: ${({ theme }) => theme.color.gray[400]};
   }
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const imageWrapper = styled.div`

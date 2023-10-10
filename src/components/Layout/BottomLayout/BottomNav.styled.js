@@ -10,7 +10,7 @@ export const TabMenuUl = styled.ul`
 `;
 
 export const TabMenuLi = styled.li`
-  flex-grow: 1;
+  flex: 1 1 0;
   text-align: center;
 `;
 

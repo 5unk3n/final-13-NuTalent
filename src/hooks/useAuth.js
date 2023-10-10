@@ -37,7 +37,6 @@ const useAuth = () => {
     mutationFn: (signupData) => signupWithData(signupData),
     onSuccess: () => {
       navigate('/signin');
-      openToast({ message: '회원가입에 성공하였습니다!' });
     },
     onError: (error) => {
       openToast({ message: error.response.data.message, status: 'error' });

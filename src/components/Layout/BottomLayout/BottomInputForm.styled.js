@@ -13,6 +13,10 @@ export const BottomInputForm = styled.form`
     &::placeholder {
       color: ${({ theme }) => theme.color.gray[200]};
     }
+
+    &:focus {
+      outline: none;
+    }
   }
 
   button {
