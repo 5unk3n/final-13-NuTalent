@@ -20,5 +20,8 @@ export const useGetCommentList = (postId, limit = 10) => {
       const nextSkip = allPages.length * limit;
       return nextSkip;
     },
+    select: (commnetData) => {
+      return commnetData.pages.flat().reverse();
+    },
   });
 };
