@@ -3,7 +3,7 @@ import React, { useState, forwardRef, useEffect } from 'react';
 import TextInput from '@/components/Elements/TextInput/TextInput';
 import { useUploadImage } from '@/features/images/api/uploadImage';
 import ImageUploader from '@/features/images/components/ImageUploader';
-import { addCommasToNumber } from '@/util/format/formatPrice';
+import { formatPrice } from '@/util/format/formatPrice';
 
 import * as S from './ProductEditor.styled';
 
@@ -11,11 +11,12 @@ const ProductEditor = forwardRef(function ProductEditor(
   { onSubmit, initData = {} },
   submitRef,
 ) {
-  const [productName, setProductName] = useState(initData.itemName || '');
-  const [price, setPrice] = useState(initData.price || '');
-  const [link, setLink] = useState(initData.link || '');
-  const [image, setImage] = useState(initData.itemImage || '');
-
+  const [productName, setProductName] = useState(initData.itemName ?? '');
+  const [price, setPrice] = useState(
+    initData.price ? formatPrice(initData.price) : '',
+  );
+  const [link, setLink] = useState(initData.link ?? '');
+  const [image, setImage] = useState(initData.itemImage ?? '');
   const { uploadedImage, handleImageChange } = useUploadImage();
 
   const handleSubmit = (e) => {
@@ -25,7 +26,7 @@ const ProductEditor = forwardRef(function ProductEditor(
       itemName: productName,
       price: Number(price.replaceAll(',', '')),
       link: link,
-      itemImage: uploadedImage,
+      itemImage: image,
     };
 
     onSubmit(productData);
@@ -33,7 +34,7 @@ const ProductEditor = forwardRef(function ProductEditor(
 
   const handlePriceChange = (e) => {
     const newPrice = e.target.value;
-    setPrice(addCommasToNumber(newPrice));
+    setPrice(formatPrice(newPrice));
   };
 
   useEffect(() => {

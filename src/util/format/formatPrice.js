@@ -1,5 +1,6 @@
-export const addCommasToNumber = (inputString) => {
-  const numberOnly = inputString.replace(/\D/g, '');
+export const formatPrice = (input) => {
+  const inputString = input.toString();
+  const numberOnly = inputString.replace(/[^0-9]/g, '');
   const numberWithCommas = new Intl.NumberFormat().format(numberOnly);
-  return numberWithCommas;
+  return numberWithCommas === '0' ? '' : numberWithCommas;
 };
