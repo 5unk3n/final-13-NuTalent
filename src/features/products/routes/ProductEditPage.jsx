@@ -13,7 +13,7 @@ export default function ProductUploadPage() {
   const submitRef = useRef(null);
   const { id } = useParams();
   const { data: product, isLoading } = useGetProduct(id);
-  const { mutate: updateProductMutate } = useUpdateProduct();
+  const { mutate: updateProductMutate } = useUpdateProduct(id);
 
   const handleSubmit = () => {
     submitRef.current?.click();

@@ -81,7 +81,7 @@ export default function PostList({
               post.image && (
                 <li key={post.id}>
                   <Link to={`/post/${post.id}`}>
-                    <S.AlbumImg src={post.image} alt="" />
+                    <S.AlbumImg src={post.image.split(',')[0]} alt="" />
                   </Link>
                 </li>
               )
