@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import userStorage from '@/util/userStorage';
 
-const BASE_URL = 'https://api.mandarin.weniv.co.kr';
+const BASE_URL = 'https://minimum-bonobo-5unk3n-c85df597.koyeb.app/';
 
 const instance = axios.create({
   baseURL: BASE_URL,
